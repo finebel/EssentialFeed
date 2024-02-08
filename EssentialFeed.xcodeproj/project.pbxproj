@@ -41,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		E832B02E2B6F8DDC00329DD5 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
+		E84335CA2B74D5B20079DC9C /* EssentialFeedCI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeedCI.xctestplan; sourceTree = "<group>"; };
 		E87BB5BC2B71633800AE86B8 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		E87BB5BE2B71642E00AE86B8 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 		E8890B302B74CA2F00637D1A /* EssentialFeed.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeed.xctestplan; sourceTree = "<group>"; };
@@ -123,6 +124,7 @@
 		E8B1E0852B6EC3C00059573E = {
 			isa = PBXGroup;
 			children = (
+				E84335CA2B74D5B20079DC9C /* EssentialFeedCI.xctestplan */,
 				E8B1E0912B6EC3C00059573E /* EssentialFeed */,
 				E8B1E09B2B6EC3C00059573E /* EssentialFeedTests */,
 				E8890B362B74CD8A00637D1A /* EssentialFeedAPIEndToEndTests */,
