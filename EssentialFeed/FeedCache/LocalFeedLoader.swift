@@ -28,7 +28,7 @@ public final class LocalFeedLoader {
 }
 
 // MARK: - save
-extension LocalFeedLoader {
+extension LocalFeedLoader: FeedLoader {
     public typealias SaveResult = Error?
     
     public func save(_ feed: [FeedImage], completion: @escaping (SaveResult) -> Void) {
