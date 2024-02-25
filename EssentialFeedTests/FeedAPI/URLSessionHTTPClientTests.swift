@@ -128,10 +128,10 @@ final class URLSessionHTTPClientTests: XCTestCase {
         error: Error?,
         file: StaticString = #filePath,
         line: UInt = #line
-    ) -> HTTPClientResult {
+    ) -> HTTPClient.Result {
         URLProtocolStub.stub(data: data, response: response, error: error)
         let sut = makeSUT(file: file, line: line)
-        var receivedResult: HTTPClientResult!
+        var receivedResult: HTTPClient.Result!
         
         let exp = expectation(description: "Completion handler is called once")
         sut.get(fromURL: anyURL()) { result in
