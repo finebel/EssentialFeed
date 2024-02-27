@@ -29,14 +29,17 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:EssentialFeedTests/EssentialFeed.xctestplan"
+            reference = "container:EssentialFeed.xctestplan"
             default = "YES">
          </TestPlanReference>
          <TestPlanReference
             reference = "container:EssentialFeedCI.xctestplan">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:EssentialFeedCacheIntegrationTests/EssentialFeedCacheIntegrationTests.xctestplan">
+            reference = "container:EssentialFeedCacheIntegrationTests.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:EssentialFeedAPIEndToEndTests.xctestplan">
          </TestPlanReference>
       </TestPlans>
       <Testables>
