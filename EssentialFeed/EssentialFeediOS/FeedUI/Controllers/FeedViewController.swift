@@ -9,24 +9,30 @@ import UIKit
 import EssentialFeed
 
 public final class FeedViewController: UITableViewController {
-    private var feedLoader: FeedLoader?
+    public var refreshController: FeedRefreshViewController?
     private var imageLoader: FeedImageDataLoader?
-    private var tableModel: [FeedImage] = []
+    private var tableModel: [FeedImage] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     private var tasks: [IndexPath: FeedImageDataLoaderTask] = [:]
     
     private var viewAppeared = false
     
     convenience public init(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) {
         self.init()
-        self.feedLoader = feedLoader
+        self.refreshController = FeedRefreshViewController(feedLoader: feedLoader)
         self.imageLoader = imageLoader
     }
     
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
+        refreshControl = refreshController?.view
+        refreshController?.onRefresh = { [weak self] feed in
+            self?.tableModel = feed
+        }
         
         tableView.prefetchDataSource = self
     }
@@ -36,19 +42,7 @@ public final class FeedViewController: UITableViewController {
         
         guard !viewAppeared else { return }
         viewAppeared = true
-        load()
-    }
-    
-    @objc private func load() {
-        refreshControl?.beginRefreshing()
-        feedLoader?.load() { [weak self] result in
-            guard let self else { return }
-            if let feed = try? result.get() {
-                tableModel = feed
-                tableView.reloadData()
-            }
-            refreshControl?.endRefreshing()
-        }
+        refreshController?.refresh()
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
