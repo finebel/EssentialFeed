@@ -287,7 +287,7 @@ extension FeedViewController {
         }
         
         refreshControl = fakeRefreshControl
-        refreshController?.view = fakeRefreshControl
+        refreshController?.replaceRefreshControl(with: fakeRefreshControl)
     }
     
     private class FakeUIRefreshControl: UIRefreshControl {
@@ -302,5 +302,12 @@ extension FeedViewController {
         override func endRefreshing() {
             _isRefreshing = false
         }
+    }
+}
+
+extension FeedRefreshViewController {
+    func replaceRefreshControl(with refreshControl: UIRefreshControl?) {
+        guard let refreshControl else { return }
+        view = binded(refreshControl)
     }
 }
