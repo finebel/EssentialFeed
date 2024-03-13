@@ -252,8 +252,8 @@ final class FeedViewControllerTests: XCTestCase {
         let loader = LoaderSpy()
         let sut = FeedUIComposer.feedComposedWith(feedLoader: loader, imageLoader: loader)
         
-//        trackForMemoryLeaks(instance: loader, file: file, line: line)
-//        trackForMemoryLeaks(instance: sut, file: file, line: line)
+        trackForMemoryLeaks(instance: loader, file: file, line: line)
+        trackForMemoryLeaks(instance: sut, file: file, line: line)
                 
         return (sut, loader)
     }
@@ -308,6 +308,6 @@ extension FeedViewController {
 extension FeedRefreshViewController {
     func replaceRefreshControl(with refreshControl: UIRefreshControl?) {
         guard let refreshControl else { return }
-        view = binded(refreshControl)
+        view = loadView(refreshControl)
     }
 }
