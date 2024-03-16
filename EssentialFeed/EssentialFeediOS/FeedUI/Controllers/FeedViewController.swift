@@ -16,9 +16,9 @@ public final class FeedViewController: UITableViewController {
     }
     
     private var viewAppeared = false
-    
-    convenience init(refreshController: FeedRefreshViewController? = nil) {
-        self.init()
+        
+    convenience init?(coder: NSCoder, refreshController: FeedRefreshViewController? = nil) {
+        self.init(coder: coder)
         self.refreshController = refreshController
     }
 
