@@ -24,7 +24,7 @@ extension FeedViewControllerTests {
             feedRequests.append(completion)
         }
         
-        func completeFeedLoading(with feed: [FeedImage] = [], at index: Int) {
+        func completeFeedLoading(with feed: [FeedImage] = [], at index: Int = 0) {
             feedRequests[index](.success(feed))
         }
         
