@@ -55,6 +55,7 @@ public final class FeedImageCellController: FeedImageView {
     }
     
     private func releaseCellForReuse() {
+        cell?.onReuse = nil
         cell = nil
     }
 }
