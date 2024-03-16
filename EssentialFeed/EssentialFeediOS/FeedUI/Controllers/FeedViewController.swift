@@ -46,7 +46,12 @@ public final class FeedViewController: UITableViewController, FeedLoadingView {
     }
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return cellController(forRowAt: indexPath).view(in: tableView)
+        cellController(forRowAt: indexPath).view(in: tableView)
+    }
+
+    public override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cellController = cellController(forRowAt: indexPath)
+        (cell as? FeedImageCell).map(cellController.setCell)
     }
     
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -59,7 +64,6 @@ public final class FeedViewController: UITableViewController, FeedLoadingView {
     
     private func cancelCellControllerLoad(forRowAt indexPath: IndexPath) {
         tableModel[indexPath.row].cancelLoad()
-        
     }
 }
 
