@@ -7,8 +7,11 @@
 
 import UIKit
 
-public final class FeedViewController: UITableViewController {
-    @IBOutlet public var refreshController: FeedRefreshViewController?
+protocol FeedViewControllerDelegate {
+    func didRequestFeedRefresh()
+}
+
+public final class FeedViewController: UITableViewController, FeedLoadingView {
     var tableModel: [FeedImageCellController] = [] {
         didSet {
             tableView.reloadData()
@@ -16,11 +19,7 @@ public final class FeedViewController: UITableViewController {
     }
     
     private var viewAppeared = false
-        
-    convenience init?(coder: NSCoder, refreshController: FeedRefreshViewController? = nil) {
-        self.init(coder: coder)
-        self.refreshController = refreshController
-    }
+    var delegate: FeedViewControllerDelegate?
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +32,19 @@ public final class FeedViewController: UITableViewController {
         
         guard !viewAppeared else { return }
         viewAppeared = true
-        refreshController?.refresh()
+        refresh()
+    }
+    
+    @IBAction private func refresh() {
+        delegate?.didRequestFeedRefresh()
+    }
+    
+    func display(_ viewModel: FeedLoadingViewModel) {
+        if viewModel.isLoading {
+            refreshControl?.beginRefreshing()
+        } else {
+            refreshControl?.endRefreshing()
+        }
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
