@@ -20,12 +20,6 @@ public final class FeedViewController: UITableViewController, FeedLoadingView {
     
     private var viewAppeared = false
     var delegate: FeedViewControllerDelegate?
-
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-                
-        tableView.prefetchDataSource = self
-    }
     
     override public func viewIsAppearing(_ animated: Bool) {
         super.viewIsAppearing(animated)
