@@ -308,6 +308,6 @@ extension FeedViewController {
 extension FeedRefreshViewController {
     func replaceRefreshControl(with refreshControl: UIRefreshControl?) {
         guard let refreshControl else { return }
-        view = loadView(refreshControl)
+        view = refreshControl
     }
 }
