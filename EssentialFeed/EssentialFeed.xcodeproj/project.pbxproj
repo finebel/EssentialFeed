@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E81939B42BA6F7FC00DDE760 /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = E81939B32BA6F7FC00DDE760 /* Feed.strings */; };
 		E832B02F2B6F8DDC00329DD5 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832B02E2B6F8DDC00329DD5 /* RemoteFeedLoader.swift */; };
 		E8335B3A2B78E48A00E1406E /* ValidateFeedCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8335B392B78E48A00E1406E /* ValidateFeedCacheUseCaseTests.swift */; };
 		E8335B3C2B78EA6C00E1406E /* FeedCacheTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8335B3B2B78EA6C00E1406E /* FeedCacheTestHelper.swift */; };
@@ -131,6 +132,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E81939B32BA6F7FC00DDE760 /* Feed.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Feed.strings; sourceTree = "<group>"; };
 		E832B02E2B6F8DDC00329DD5 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 		E8335B392B78E48A00E1406E /* ValidateFeedCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFeedCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		E8335B3B2B78EA6C00E1406E /* FeedCacheTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCacheTestHelper.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				E854E9E62BA4D32B008113F9 /* FeedImagePresenter.swift */,
 				E854E9E82BA4E51D008113F9 /* FeedLoadingViewModel.swift */,
 				E854E9EA2BA4E530008113F9 /* FeedViewModel.swift */,
+				E81939B32BA6F7FC00DDE760 /* Feed.strings */,
 			);
 			path = FeedPresentation;
 			sourceTree = "<group>";
@@ -758,6 +761,7 @@
 			files = (
 				E8BB85972BA59E7300D95040 /* Feed.storyboard in Resources */,
 				E8BB85992BA59F7600D95040 /* Feed.xcassets in Resources */,
+				E81939B42BA6F7FC00DDE760 /* Feed.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
