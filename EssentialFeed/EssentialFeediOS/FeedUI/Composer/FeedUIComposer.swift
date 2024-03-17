@@ -21,6 +21,7 @@ public final class FeedUIComposer {
             FeedViewController(coder: coder)
         }!
         feedController.delegate = presentationAdapter
+        feedController.title = FeedPresenter.title
         
         presentationAdapter.presenter = FeedPresenter(
             loadingView: WeakRefVirtualProxy(feedController),
