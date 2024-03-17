@@ -21,6 +21,12 @@ public final class FeedViewController: UITableViewController, FeedLoadingView {
     private var viewAppeared = false
     var delegate: FeedViewControllerDelegate?
     
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "My Feed"
+    }
+    
     override public func viewIsAppearing(_ animated: Bool) {
         super.viewIsAppearing(animated)
         
