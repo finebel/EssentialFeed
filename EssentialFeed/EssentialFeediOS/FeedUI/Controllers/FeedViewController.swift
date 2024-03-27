@@ -11,6 +11,10 @@ protocol FeedViewControllerDelegate {
     func didRequestFeedRefresh()
 }
 
+public final class ErrorView: UIView {
+    public var message: String?
+}
+
 public final class FeedViewController: UITableViewController, FeedLoadingView {
     var tableModel: [FeedImageCellController] = [] {
         didSet {
@@ -20,6 +24,7 @@ public final class FeedViewController: UITableViewController, FeedLoadingView {
     
     private var viewAppeared = false
     var delegate: FeedViewControllerDelegate?
+    public let errorView = ErrorView()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
