@@ -61,7 +61,6 @@
 		E8890B392B74CD8A00637D1A /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B1E08F2B6EC3C00059573E /* EssentialFeed.framework */; };
 		E890783D2B94C1E000A3A5AC /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890783C2B94C1E000A3A5AC /* FeedImageCell.swift */; };
 		E89078402B9505C400A3A5AC /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890783F2B9505C400A3A5AC /* UIView+Shimmering.swift */; };
-		E89078412B9505C400A3A5AC /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890783F2B9505C400A3A5AC /* UIView+Shimmering.swift */; };
 		E896BB112B73736B00197288 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E896BB102B73736B00197288 /* URLSessionHTTPClientTests.swift */; };
 		E896BB142B73D31300197288 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E896BB132B73D31300197288 /* XCTestCase+MemoryLeakTracking.swift */; };
 		E896BB162B73E90000197288 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E896BB152B73E90000197288 /* URLSessionHTTPClient.swift */; };
@@ -345,11 +344,10 @@
 		E8618D8C2B9B992600C88763 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E8A155772BB6BFFC008BF057 /* Helpers */,
 				E890783C2B94C1E000A3A5AC /* FeedImageCell.swift */,
-				E890783F2B9505C400A3A5AC /* UIView+Shimmering.swift */,
 				E8BB85962BA59E7300D95040 /* Feed.storyboard */,
 				E8BB85982BA59F7600D95040 /* Feed.xcassets */,
-				E8BB859A2BA5DC4700D95040 /* UITableView+Dequeueing.swift */,
 				E8A155752BB6B763008BF057 /* ErrorView.swift */,
 			);
 			path = Views;
@@ -360,7 +358,6 @@
 			children = (
 				E87A6D7C2B936519002A461F /* FeedViewController.swift */,
 				E88760FA2B9C710C00491C08 /* FeedImageCellController.swift */,
-				E8BB859C2BA5DE7500D95040 /* UIImageView+Animations.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -480,6 +477,16 @@
 			children = (
 				E896BB132B73D31300197288 /* XCTestCase+MemoryLeakTracking.swift */,
 				E8335B3D2B78EB4400E1406E /* SharedTestHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E8A155772BB6BFFC008BF057 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E890783F2B9505C400A3A5AC /* UIView+Shimmering.swift */,
+				E8BB859A2BA5DC4700D95040 /* UITableView+Dequeueing.swift */,
+				E8BB859C2BA5DE7500D95040 /* UIImageView+Animations.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -864,7 +871,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8618D9F2B9B9B2100C88763 /* FeedViewController+TestHelpers.swift in Sources */,
-				E89078412B9505C400A3A5AC /* UIView+Shimmering.swift in Sources */,
 				E8618DA32B9B9BC000C88763 /* FeedViewControllerTests+LoaderSpy.swift in Sources */,
 				E81939B62BA6FB5C00DDE760 /* FeedViewController+Localization.swift in Sources */,
 				E8618D9B2B9B9A7900C88763 /* UIControl+TestHelpers.swift in Sources */,
