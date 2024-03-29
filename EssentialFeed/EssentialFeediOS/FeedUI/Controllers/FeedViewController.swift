@@ -15,7 +15,7 @@ public final class ErrorView: UIView {
     public var message: String?
 }
 
-public final class FeedViewController: UITableViewController, FeedLoadingView {
+public final class FeedViewController: UITableViewController, FeedLoadingView, FeedErrorView {
     var tableModel: [FeedImageCellController] = [] {
         didSet {
             tableView.reloadData()
@@ -48,6 +48,10 @@ public final class FeedViewController: UITableViewController, FeedLoadingView {
         } else {
             refreshControl?.endRefreshing()
         }
+    }
+    
+    func display(_ viewModel: FeedErrorViewModel) {
+        errorView.message = viewModel.message
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
