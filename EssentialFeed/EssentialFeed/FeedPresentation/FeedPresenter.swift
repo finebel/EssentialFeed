@@ -20,14 +20,14 @@ public protocol FeedErrorView {
 }
 
 public final class FeedPresenter {
-    private let errorView: FeedErrorView
-    private let loadingView: FeedLoadingView
     private let feedView: FeedView
+    private let loadingView: FeedLoadingView
+    private let errorView: FeedErrorView
     
-    public init(errorView: FeedErrorView, loadingView: FeedLoadingView, feedView: FeedView) {
-        self.errorView = errorView
-        self.loadingView = loadingView
+    public init(feedView: FeedView, loadingView: FeedLoadingView, errorView: FeedErrorView) {
         self.feedView = feedView
+        self.loadingView = loadingView
+        self.errorView = errorView
     }
     
     public static var title: String {
