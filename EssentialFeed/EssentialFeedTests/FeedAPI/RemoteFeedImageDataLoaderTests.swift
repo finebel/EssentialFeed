@@ -20,7 +20,9 @@ class RemoteFeedImageDataLoader {
     }
     
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) {
-        client.get(fromURL: url) { clientResult in
+        client.get(fromURL: url) { [weak self] clientResult in
+            guard self != nil else { return }
+            
             switch clientResult {
             case let .success((data, response)):
                 if response.statusCode == 200, !data.isEmpty {
@@ -99,6 +101,19 @@ final class RemoteFeedImageDataLoaderTests: XCTestCase {
         expect(sut, toCompleteWith: .success(nonEmptyData)) {
             client.complete(with: 200, data: nonEmptyData)
         }
+    }
+    
+    func test_loadImageDataFromURL_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
+        let client = HTTPClientSpy()
+        var sut: RemoteFeedImageDataLoader? = RemoteFeedImageDataLoader(client: client)
+        
+        var capturedResults: [FeedImageDataLoader.Result] = []
+        sut?.loadImageData(from: anyURL()) { capturedResults.append($0) }
+        
+        sut = nil
+        client.complete(with: 200, data: anyData())
+        
+        XCTAssertTrue(capturedResults.isEmpty)
     }
     
     // MARK: - Helpers
