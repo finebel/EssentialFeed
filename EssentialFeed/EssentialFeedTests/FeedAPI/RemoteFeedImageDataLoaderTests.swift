@@ -177,10 +177,6 @@ final class RemoteFeedImageDataLoaderTests: XCTestCase {
         return (sut, client)
     }
     
-    private func anyData() -> Data {
-        "any data".data(using: .utf8)!
-    }
-    
     private func nonEmptyData() -> Data {
         "non-empty data".data(using: .utf8)!
     }
