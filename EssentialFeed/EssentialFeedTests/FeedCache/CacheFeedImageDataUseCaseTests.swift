@@ -16,7 +16,7 @@ final class CacheFeedImageDataUseCaseTests: XCTestCase {
         XCTAssertTrue(store.receivedMessages.isEmpty)
     }
     
-    func test_saveImageDataForURL_requestsImageDataInsertionForURL() {
+    func test_saveImageDataFromURL_requestsImageDataInsertionForURL() {
         let (sut, store) = makeSUT()
         let url = anyURL()
         let data = anyData()
@@ -26,7 +26,7 @@ final class CacheFeedImageDataUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.insert(data: data, for: url)])
     }
     
-    func test_saveImageDataForURL_failsOnStoreInsertionError() {
+    func test_saveImageDataFromURL_failsOnStoreInsertionError() {
         let (sut, store) = makeSUT()
         
         expect(sut, toCompleteWith: failed()) {
@@ -35,7 +35,7 @@ final class CacheFeedImageDataUseCaseTests: XCTestCase {
         }
     }
     
-    func test_saveImageDataForURL_succeedsOnSuccessfulStoreInsertion() {
+    func test_saveImageDataFromURL_succeedsOnSuccessfulStoreInsertion() {
         let (sut, store) = makeSUT()
         
         expect(sut, toCompleteWith: .success(())) {
@@ -43,8 +43,7 @@ final class CacheFeedImageDataUseCaseTests: XCTestCase {
         }
     }
     
-    
-    func test_saveImageDataForURL_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
+    func test_saveImageDataFromURL_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
         let store = FeedImageDataStoreSpy()
         var sut: LocalFeedImageDataLoader? = LocalFeedImageDataLoader(store: store)
         
