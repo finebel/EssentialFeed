@@ -326,6 +326,7 @@
 		E832B02D2B6F8DC000329DD5 /* FeedAPI */ = {
 			isa = PBXGroup;
 			children = (
+				E82A31BC2BBC79390046F34A /* Helpers */,
 				E832B02E2B6F8DDC00329DD5 /* RemoteFeedLoader.swift */,
 				E87BB5BC2B71633800AE86B8 /* HTTPClient.swift */,
 				E87BB5BE2B71642E00AE86B8 /* FeedItemsMapper.swift */,
@@ -439,7 +440,6 @@
 		E873157B2B7773B500812006 /* FeedCache */ = {
 			isa = PBXGroup;
 			children = (
-				E82A31BC2BBC79390046F34A /* Helpers */,
 				E83E413E2B8766EE00B754E2 /* Infrastructure */,
 				E873157C2B7773CF00812006 /* LocalFeedLoader.swift */,
 				E873157E2B7773E900812006 /* FeedStore.swift */,
