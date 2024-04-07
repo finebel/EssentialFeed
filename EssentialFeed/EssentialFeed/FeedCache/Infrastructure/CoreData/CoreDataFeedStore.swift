@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-public final class CoreDataFeedStore: FeedStore {
+public final class CoreDataFeedStore {
     private static let modelName = "FeedStore"
     private static let model = NSManagedObjectModel.with(name: modelName, in: Bundle(for: CoreDataFeedStore.self))
     
@@ -21,7 +21,8 @@ public final class CoreDataFeedStore: FeedStore {
         case failedToLoadPersistentStores(Error)
     }
     
-    public init(storeURL: URL, bundle: Bundle = .main) throws {
+    public init(storeURL: URL) throws {
+        let bundle = Bundle(for: Self.self)
         guard let model = Self.model else {
             throw StoreError.modelNotFound
         }
@@ -34,45 +35,19 @@ public final class CoreDataFeedStore: FeedStore {
         }
     }
     
-    public func retrieve(completion: @escaping RetrievalCompletion) {
-        perform { context in
-            let retrievalResult: RetrievalResult = Result {
-                try ManagedCache.find(in: context).map {
-                    return CachedFeed(feed: $0.localFeed, timestamp: $0.timestamp)
-                }
-            }
-            
-            completion(retrievalResult)
-        }
+    deinit {
+        cleanUpReferencesToPersistentStores()
     }
     
-    public func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
-        perform { context in
-            let insertResult: InsertionResult = Result {
-                let managedCache = try ManagedCache.newUniqueInstance(in: context)
-                managedCache.timestamp = timestamp
-                managedCache.feed = ManagedFeedImage.images(from: feed, in: context)
-                
-                try context.save()
-            }
-            
-            completion(insertResult)
-        }
-    }
-    
-    public func deleteCachedFeed(completion: @escaping DeletionCompletion) {
-        perform { context in
-            let deleteResult: DeletionResult = Result {
-                try ManagedCache.find(in: context)
-                    .map(context.delete)
-                    .map(context.save)
-            }
-            completion(deleteResult)
-        }
-    }
-    
-    private func perform(_ action: @escaping (NSManagedObjectContext) -> Void) {
+    func perform(_ action: @escaping (NSManagedObjectContext) -> Void) {
         let context = self.context
         context.perform { action(context) }
+    }
+    
+    private func cleanUpReferencesToPersistentStores() {
+        context.performAndWait {
+            let coordinator = self.container.persistentStoreCoordinator
+            try? coordinator.persistentStores.forEach(coordinator.remove)
+        }
     }
 }

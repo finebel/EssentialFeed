@@ -1,5 +1,5 @@
 //
-//  LoadFeedImageDataFromRemoteUseCaseTestsu.swift
+//  LoadFeedImageDataFromRemoteUseCaseTests.swift
 //  EssentialFeedTests
 //
 //  Created by Finn Ebeling on 31.03.24.
