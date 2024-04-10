@@ -32,7 +32,7 @@ class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader {
             
             switch result {
             case .success:
-                break
+                completion(result)
                 
             case .failure:
                 task.wrapped = self.fallback.loadImageData(from: url) { _ in }
@@ -95,6 +95,15 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         XCTAssertEqual(fallback.cancelledURLs, [url] , "Expected to cancel URL loading from fallback loader")
     }
     
+    func test_loadImageData_deliversPrimaryDataOnPrimaryLoaderSuccess() {
+        let (sut, primary, _) = makeSUT()
+        let primaryData = anyData()
+        
+        expect(sut, toCompleteWith: .success(primaryData)) {
+            primary.complete(withData: primaryData)
+        }
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedImageDataLoader, primary: LoaderSpy, fallback: LoaderSpy) {
@@ -118,6 +127,38 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         addTeardownBlock { [weak instance] in
             XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
         }
+    }
+    
+    private func expect(
+        _ sut: FeedImageDataLoader,
+        toCompleteWith expectedResult: FeedImageDataLoader.Result,
+        when action: () -> Void,
+        file: StaticString = #file,
+        line: UInt = #line
+    ) {
+        let exp = expectation(description: "Wait for load completion")
+
+        _ = sut.loadImageData(from: anyURL()) { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedImageData), .success(expectedImageData)):
+                XCTAssertEqual(receivedImageData, expectedImageData, file: file, line: line)
+
+            case (.failure, .failure):
+                break
+
+            default:
+                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+            }
+
+            exp.fulfill()
+        }
+
+        action()
+        wait(for: [exp], timeout: 1.0)
+    }
+    
+    private func anyData() -> Data {
+        "any data".data(using: .utf8)!
     }
     
     private func anyNSError() -> NSError {
