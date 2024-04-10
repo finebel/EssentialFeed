@@ -22,7 +22,17 @@ class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader {
     }
     
     func loadImageData(from url: URL, completion: @escaping ((FeedImageDataLoader.Result) -> Void)) -> FeedImageDataLoaderTask {
-        _ = primary.loadImageData(from: url) { _ in }
+        _ = primary.loadImageData(from: url) { [weak self] result in
+            guard let self else { return }
+            
+            switch result {
+            case .success:
+                break
+                
+            case .failure:
+                _ = self.fallback.loadImageData(from: url) { _ in }
+            }
+        }
         return Task()
     }
 }
@@ -43,6 +53,18 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         
         XCTAssertEqual(primary.loadedURLs, [url] , "Expected to load URL from primary loader")
         XCTAssertTrue(fallback.loadedURLs.isEmpty, "Expected no loaded URLs in the fallback loader")
+    }
+    
+    func test_loadImageData_loadsFromFallbackOnPrimaryLoaderFailure() {
+        let (sut, primary, fallback) = makeSUT()
+        let url = anyURL()
+        
+        _ = sut.loadImageData(from: url) { _ in }
+        
+        primary.complete(withError: anyNSError())
+        
+        XCTAssertEqual(primary.loadedURLs, [url] , "Expected to load URL from primary loader")
+        XCTAssertEqual(fallback.loadedURLs, [url] , "Expected to load URL from fallback loader after primary loader failed")
     }
     
     // MARK: - Helpers
@@ -70,6 +92,10 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         }
     }
     
+    private func anyNSError() -> NSError {
+        NSError(domain: "any error", code: 0)
+    }
+    
     private func anyURL() -> URL {
         URL(string: "http://a-url.com")!
     }
@@ -92,6 +118,10 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         
         func complete(withData data: Data, at index: Int = 0) {
             completions[index].completion(.success(data))
+        }
+        
+        func complete(withError error: Error, at index: Int = 0) {
+            completions[index].completion(.failure(error))
         }
     }
 }
