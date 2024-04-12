@@ -38,7 +38,7 @@ jobs:
       # - name: Build and Test CI_iOS Scheme
       #   run: |
       #     set -o pipefail && xcodebuild clean build test \
-      #     -project EssentialFeed/EssentialFeed.xcodeproj \
+      #     -workspace EssentialApp/EssentialApp.xcworkspace \
       #     -scheme CI_iOS \
       #     -sdk iphonesimulator \
       #     -destination "platform=iOS Simulator,name=iPhone 15,OS=17.2" \
@@ -46,3 +46,4 @@ jobs:
       #     CODE_SIGN_IDENTITY="" \
       #     CODE_SIGNING_REQUIRED=NO \
       #     ONLY_ACTIVE_ARCH=YES | xcbeautify --renderer github-actions
+
