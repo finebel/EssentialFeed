@@ -20,7 +20,7 @@ class FeedImageDataLoaderCacheDecorator: FeedImageDataLoader {
     }
 }
 
-final class FeedImageDataLoaderCacheDecoratorTests: XCTestCase {
+final class FeedImageDataLoaderCacheDecoratorTests: XCTestCase, FeedImageDataLoaderTestCase {
     
     func test_init_doesNotLoadImageData() {
         let (_, loader) = makeSUT()
@@ -66,72 +66,13 @@ final class FeedImageDataLoaderCacheDecoratorTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedImageDataLoaderCacheDecorator, loader: LoaderSpy) {
-        let loader = LoaderSpy()
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedImageDataLoaderCacheDecorator, loader: FeedImageDataLoaderSpy) {
+        let loader = FeedImageDataLoaderSpy()
         let sut = FeedImageDataLoaderCacheDecorator(decoratee: loader)
         
         trackForMemoryLeaks(instance: loader, file: file, line: line)
         trackForMemoryLeaks(instance: sut, file: file, line: line)
         
         return (sut, loader)
-    }
-    
-    private func expect(
-        _ sut: FeedImageDataLoader,
-        toCompleteWith expectedResult: FeedImageDataLoader.Result,
-        when action: () -> Void,
-        file: StaticString = #file,
-        line: UInt = #line
-    ) {
-        let exp = expectation(description: "Wait for load completion")
-
-        _ = sut.loadImageData(from: anyURL()) { receivedResult in
-            switch (receivedResult, expectedResult) {
-            case let (.success(receivedImageData), .success(expectedImageData)):
-                XCTAssertEqual(receivedImageData, expectedImageData, file: file, line: line)
-
-            case (.failure, .failure):
-                break
-
-            default:
-                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
-            }
-
-            exp.fulfill()
-        }
-
-        action()
-        wait(for: [exp], timeout: 1.0)
-    }
-    
-    private class LoaderSpy: FeedImageDataLoader {
-        private struct Task: FeedImageDataLoaderTask {
-            var callback: () -> Void
-            func cancel() { callback() }
-        }
-        
-        private var completions: [(url: URL, completion: ((FeedImageDataLoader.Result) -> Void))] = []
-        
-        var loadedURLs: [URL] {
-            completions.map(\.url)
-        }
-        
-        private(set) var cancelledURLs: [URL] = []
-        
-        func loadImageData(from url: URL, completion: @escaping ((FeedImageDataLoader.Result) -> Void)) -> FeedImageDataLoaderTask {
-            completions.append((url, completion))
-            
-            return Task { [weak self] in
-                self?.cancelledURLs.append(url)
-            }
-        }
-        
-        func complete(withData data: Data, at index: Int = 0) {
-            completions[index].completion(.success(data))
-        }
-        
-        func complete(withError error: Error, at index: Int = 0) {
-            completions[index].completion(.failure(error))
-        }
     }
 }
