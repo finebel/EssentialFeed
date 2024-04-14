@@ -32,6 +32,7 @@
 		E8733ACC2BC2AD140023CF63 /* EssentialFeed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8733AC92BC2AD140023CF63 /* EssentialFeed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E8733ACD2BC2AD140023CF63 /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8733ACA2BC2AD140023CF63 /* EssentialFeediOS.framework */; };
 		E8733ACE2BC2AD140023CF63 /* EssentialFeediOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8733ACA2BC2AD140023CF63 /* EssentialFeediOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8E7E5372BCBE52700570829 /* DebuggingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E7E5362BCBE52700570829 /* DebuggingSceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		E8733AA52BC2AB060023CF63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8733AC92BC2AD140023CF63 /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8733ACA2BC2AD140023CF63 /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8E7E5362BCBE52700570829 /* DebuggingSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebuggingSceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 			children = (
 				E8733A972BC2AB050023CF63 /* AppDelegate.swift */,
 				E8733A992BC2AB050023CF63 /* SceneDelegate.swift */,
+				E8E7E5362BCBE52700570829 /* DebuggingSceneDelegate.swift */,
 				E8733A9B2BC2AB050023CF63 /* ViewController.swift */,
 				E8733A9D2BC2AB050023CF63 /* Main.storyboard */,
 				E8733AA02BC2AB060023CF63 /* Assets.xcassets */,
@@ -367,6 +370,7 @@
 				E8733A982BC2AB050023CF63 /* AppDelegate.swift in Sources */,
 				E84E151D2BC5BB56009549C7 /* FeedLoaderWithFallbackComposite.swift in Sources */,
 				E823024D2BCA8AA6006E1F23 /* FeedLoaderCacheDecorator.swift in Sources */,
+				E8E7E5372BCBE52700570829 /* DebuggingSceneDelegate.swift in Sources */,
 				E8733A9A2BC2AB050023CF63 /* SceneDelegate.swift in Sources */,
 				E82E8EDA2BC7120100C9AF40 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */,
 				E82302582BCAB243006E1F23 /* FeedImageDataLoaderCacheDecorator.swift in Sources */,
