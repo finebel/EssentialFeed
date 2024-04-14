@@ -94,6 +94,9 @@ Location</string>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zOd-Le-yho">
                                                             <rect key="frame" x="0.0" y="0.0" width="353" height="353"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="feed-image-view">
+                                                                <bool key="isElement" value="YES"/>
+                                                            </accessibility>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWb-JI-mhf">
                                                             <rect key="frame" x="146" y="139.66666666666674" width="74" height="86"/>
@@ -143,6 +146,9 @@ Location</string>
                                         <constraint firstItem="jEc-re-BoG" firstAttribute="trailing" secondItem="6UH-M3-sDx" secondAttribute="trailingMargin" id="vIi-oK-he8"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="feed-image-cell">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="PJK-8l-t4j" id="Nea-Qo-bUN"/>
                                     <outlet property="feedImageRetryButton" destination="iWb-JI-mhf" id="NqZ-bO-Z7m"/>
