@@ -16,8 +16,7 @@ extension FeedUIIntegrationTests {
         file: StaticString = #filePath,
         line: UInt = #line
     ) {
-        sut.tableView.layoutIfNeeded()
-        RunLoop.main.run(until: Date())
+        sut.view.enforceLayoutCycle()
         
         guard sut.numberOfRenderedFeedImageViews() == feed.count else {
             return XCTFail("Expected \(feed) images, got \(sut.numberOfRenderedFeedImageViews()) instead", file: file, line: line)
@@ -26,7 +25,7 @@ extension FeedUIIntegrationTests {
             assertThat(sut, hasViewConfiguredFor: image, at: index, file: file, line: line)
         }
         
-        RunLoop.main.run(until: Date())
+        executeRunLoopToCleanUpReferences()
     }
     
     func assertThat(
@@ -67,5 +66,9 @@ extension FeedUIIntegrationTests {
             file: file,
             line: line
         )
+    }
+    
+    private func executeRunLoopToCleanUpReferences() {
+        RunLoop.main.run(until: Date())
     }
 }
