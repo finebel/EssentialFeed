@@ -19,7 +19,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RjZ-GM-4ay">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RjZ-GM-4ay">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="34"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="0.0" maxY="8"/>
@@ -84,7 +84,7 @@
                                                             <string key="text">Location, 
 Location</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -104,14 +104,14 @@ Location</string>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title="↻">
                                                                 <fontDescription key="titleFontDescription" type="system" pointSize="60"/>
-                                                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                                             </buttonConfiguration>
                                                             <connections>
                                                                 <action selector="retryButtonTapped" destination="GSO-Ls-WYj" eventType="touchUpInside" id="wjM-gb-jxy"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.89019607840000003" green="0.89019607840000003" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="gik-Cd-xbS" secondAttribute="height" multiplier="1:1" id="0l8-y6-8rw"/>
                                                         <constraint firstAttribute="bottom" secondItem="zOd-Le-yho" secondAttribute="bottom" id="BY7-Cm-o13"/>
@@ -129,7 +129,7 @@ Location</string>
                                                     <rect key="frame" x="0.0" y="431.33333333333331" width="349" height="114.66666666666669"/>
                                                     <string key="text">Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description </string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -183,6 +183,12 @@ Location</string>
     </scenes>
     <resources>
         <image name="pin" width="10" height="14.333333015441895"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -23,8 +23,10 @@ public final class FeedViewController: UITableViewController, FeedLoadingView, F
     public var delegate: FeedViewControllerDelegate?
     @IBOutlet private(set) public var errorView: ErrorView?
     
-    public override func viewDidLoad() {
-        super.viewDidLoad()
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        tableView.sizeTableHeaderToFit()
     }
     
     override public func viewIsAppearing(_ animated: Bool) {

@@ -20,6 +20,8 @@
 		E8335B3C2B78EA6C00E1406E /* FeedCacheTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8335B3B2B78EA6C00E1406E /* FeedCacheTestHelper.swift */; };
 		E8335B3E2B78EB4400E1406E /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8335B3D2B78EB4400E1406E /* SharedTestHelpers.swift */; };
 		E8335B482B793FE300E1406E /* FeedCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8335B472B793FE300E1406E /* FeedCachePolicy.swift */; };
+		E83367822BD043240083E872 /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83367812BD043240083E872 /* UIImage+TestHelpers.swift */; };
+		E83367842BD046590083E872 /* UITableView+HeaderSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83367832BD046590083E872 /* UITableView+HeaderSizing.swift */; };
 		E83E41422B8767ED00B754E2 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83E41412B8767ED00B754E2 /* CoreDataHelpers.swift */; };
 		E83E41442B87685100B754E2 /* ManagedCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83E41432B87685100B754E2 /* ManagedCache.swift */; };
 		E83E41462B87685600B754E2 /* ManagedFeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83E41452B87685600B754E2 /* ManagedFeedImage.swift */; };
@@ -51,6 +53,8 @@
 		E87BB5BF2B71642E00AE86B8 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87BB5BE2B71642E00AE86B8 /* FeedItemsMapper.swift */; };
 		E884EFF82B7661A300B95472 /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E884EFF72B7661A300B95472 /* CacheFeedUseCaseTests.swift */; };
 		E88760FB2B9C710C00491C08 /* FeedImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88760FA2B9C710C00491C08 /* FeedImageCellController.swift */; };
+		E88770632BD10F5B007798B9 /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88770622BD10F5B007798B9 /* UIViewController+Snapshot.swift */; };
+		E88770652BD11004007798B9 /* SnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88770642BD11004007798B9 /* SnapshotTests.swift */; };
 		E8890B382B74CD8A00637D1A /* EssentialFeedAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8890B372B74CD8A00637D1A /* EssentialFeedAPIEndToEndTests.swift */; };
 		E8890B392B74CD8A00637D1A /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B1E08F2B6EC3C00059573E /* EssentialFeed.framework */; };
 		E890783D2B94C1E000A3A5AC /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890783C2B94C1E000A3A5AC /* FeedImageCell.swift */; };
@@ -77,6 +81,7 @@
 		E8BB85992BA59F7600D95040 /* Feed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8BB85982BA59F7600D95040 /* Feed.xcassets */; };
 		E8BB859B2BA5DC4700D95040 /* UITableView+Dequeueing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BB859A2BA5DC4700D95040 /* UITableView+Dequeueing.swift */; };
 		E8BB859D2BA5DE7500D95040 /* UIImageView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BB859C2BA5DE7500D95040 /* UIImageView+Animations.swift */; };
+		E8C56D112BCEF92E006964D5 /* FeedSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C56D102BCEF92E006964D5 /* FeedSnapshotTests.swift */; };
 		E8E49B292B87AF6C0001F669 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E896BB132B73D31300197288 /* XCTestCase+MemoryLeakTracking.swift */; };
 		E8E49B2A2B87B2650001F669 /* FeedCacheTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8335B3B2B78EA6C00E1406E /* FeedCacheTestHelper.swift */; };
 		E8E49B2B2B87B2700001F669 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8335B3D2B78EB4400E1406E /* SharedTestHelpers.swift */; };
@@ -156,6 +161,8 @@
 		E8335B3B2B78EA6C00E1406E /* FeedCacheTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCacheTestHelper.swift; sourceTree = "<group>"; };
 		E8335B3D2B78EB4400E1406E /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		E8335B472B793FE300E1406E /* FeedCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCachePolicy.swift; sourceTree = "<group>"; };
+		E83367812BD043240083E872 /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
+		E83367832BD046590083E872 /* UITableView+HeaderSizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+HeaderSizing.swift"; sourceTree = "<group>"; };
 		E83E41412B8767ED00B754E2 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		E83E41432B87685100B754E2 /* ManagedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCache.swift; sourceTree = "<group>"; };
 		E83E41452B87685600B754E2 /* ManagedFeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedFeedImage.swift; sourceTree = "<group>"; };
@@ -186,6 +193,8 @@
 		E87BB5BE2B71642E00AE86B8 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 		E884EFF72B7661A300B95472 /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
 		E88760FA2B9C710C00491C08 /* FeedImageCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCellController.swift; sourceTree = "<group>"; };
+		E88770622BD10F5B007798B9 /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
+		E88770642BD11004007798B9 /* SnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTests.swift; sourceTree = "<group>"; };
 		E8890B302B74CA2F00637D1A /* EssentialFeed.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeed.xctestplan; sourceTree = "<group>"; };
 		E8890B352B74CD8A00637D1A /* EssentialFeedAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8890B372B74CD8A00637D1A /* EssentialFeedAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedAPIEndToEndTests.swift; sourceTree = "<group>"; };
@@ -217,6 +226,7 @@
 		E8BB85982BA59F7600D95040 /* Feed.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Feed.xcassets; sourceTree = "<group>"; };
 		E8BB859A2BA5DC4700D95040 /* UITableView+Dequeueing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeueing.swift"; sourceTree = "<group>"; };
 		E8BB859C2BA5DE7500D95040 /* UIImageView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animations.swift"; sourceTree = "<group>"; };
+		E8C56D102BCEF92E006964D5 /* FeedSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSnapshotTests.swift; sourceTree = "<group>"; };
 		E8F0A1EB2BC13C0C00B15C01 /* LocalFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImageDataLoader.swift; sourceTree = "<group>"; };
 		E8F0A1ED2BC13C4000B15C01 /* FeedImageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataStore.swift; sourceTree = "<group>"; };
 		E8F0A1EF2BC1429A00B15C01 /* FeedImageDataStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataStoreSpy.swift; sourceTree = "<group>"; };
@@ -306,6 +316,16 @@
 				E816F2332BBAE7040074D4F9 /* RemoteFeedImageDataLoader.swift */,
 			);
 			path = FeedAPI;
+			sourceTree = "<group>";
+		};
+		E83367802BD043160083E872 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E83367812BD043240083E872 /* UIImage+TestHelpers.swift */,
+				E88770622BD10F5B007798B9 /* UIViewController+Snapshot.swift */,
+				E88770642BD11004007798B9 /* SnapshotTests.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E83E413E2B8766EE00B754E2 /* Infrastructure */ = {
@@ -465,6 +485,7 @@
 				E8BB859A2BA5DC4700D95040 /* UITableView+Dequeueing.swift */,
 				E8BB859C2BA5DE7500D95040 /* UIImageView+Animations.swift */,
 				E8A155782BB6C202008BF057 /* UIRefreshControl+Helpers.swift */,
+				E83367832BD046590083E872 /* UITableView+HeaderSizing.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -487,13 +508,6 @@
 			path = EssentialFeediOS;
 			sourceTree = "<group>";
 		};
-		E8ABF0322B8E655200BF7220 /* EssentialFeediOSTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = EssentialFeediOSTests;
-			sourceTree = "<group>";
-		};
 		E8B1E0852B6EC3C00059573E = {
 			isa = PBXGroup;
 			children = (
@@ -507,7 +521,7 @@
 				E8890B362B74CD8A00637D1A /* EssentialFeedAPIEndToEndTests */,
 				E83E414C2B8793B100B754E2 /* EssentialFeedCacheIntegrationTests */,
 				E8ABF0282B8E655100BF7220 /* EssentialFeediOS */,
-				E8ABF0322B8E655200BF7220 /* EssentialFeediOSTests */,
+				E8C56D0F2BCEF905006964D5 /* EssentialFeediOSTests */,
 				E8B1E0902B6EC3C00059573E /* Products */,
 				E87A6D752B932178002A461F /* Frameworks */,
 			);
@@ -570,6 +584,15 @@
 				E8B734502B83E8E50073880E /* XCTestCase+FailableDeleteFeedStoreSpecs.swift */,
 			);
 			path = FeedStoreSpecs;
+			sourceTree = "<group>";
+		};
+		E8C56D0F2BCEF905006964D5 /* EssentialFeediOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				E83367802BD043160083E872 /* Helpers */,
+				E8C56D102BCEF92E006964D5 /* FeedSnapshotTests.swift */,
+			);
+			path = EssentialFeediOSTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -832,6 +855,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E83367842BD046590083E872 /* UITableView+HeaderSizing.swift in Sources */,
 				E8A155792BB6C202008BF057 /* UIRefreshControl+Helpers.swift in Sources */,
 				E8BB859B2BA5DC4700D95040 /* UITableView+Dequeueing.swift in Sources */,
 				E89078402B9505C400A3A5AC /* UIView+Shimmering.swift in Sources */,
@@ -848,6 +872,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E87A6D7B2B9322AC002A461F /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+				E8C56D112BCEF92E006964D5 /* FeedSnapshotTests.swift in Sources */,
+				E88770632BD10F5B007798B9 /* UIViewController+Snapshot.swift in Sources */,
+				E88770652BD11004007798B9 /* SnapshotTests.swift in Sources */,
+				E83367822BD043240083E872 /* UIImage+TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -974,9 +1002,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.finnebeling.EssentialFeedCacheIntegrationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -989,9 +1019,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.finnebeling.EssentialFeedCacheIntegrationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1006,10 +1038,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.finnebeling.EssentialFeedAPIEndToEndTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1024,10 +1057,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.finnebeling.EssentialFeedAPIEndToEndTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1061,10 +1095,12 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1098,9 +1134,11 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1118,9 +1156,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.finnebeling.EssentialFeed.EssentialFeediOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1137,9 +1179,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.finnebeling.EssentialFeed.EssentialFeediOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1297,10 +1343,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.finnebeling.EssentialFeed;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1331,9 +1379,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.finnebeling.EssentialFeed;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1348,9 +1398,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.finnebeling.EssentialFeedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1365,9 +1417,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.finnebeling.EssentialFeedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
