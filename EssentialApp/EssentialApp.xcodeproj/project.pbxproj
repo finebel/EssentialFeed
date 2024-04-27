@@ -38,6 +38,7 @@
 		E8BF063D2BCD00F1008D2B6A /* FeedAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BF063C2BCD00F1008D2B6A /* FeedAcceptanceTests.swift */; };
 		E8BF063F2BCD2520008D2B6A /* HTTPClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BF063E2BCD2520008D2B6A /* HTTPClientStub.swift */; };
 		E8BF06412BCD2555008D2B6A /* InMemoryFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BF06402BCD2555008D2B6A /* InMemoryFeedStore.swift */; };
+		E8C3FAD82BDD088100A5934C /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C3FAD72BDD088100A5934C /* CombineHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		E8BF063C2BCD00F1008D2B6A /* FeedAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAcceptanceTests.swift; sourceTree = "<group>"; };
 		E8BF063E2BCD2520008D2B6A /* HTTPClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientStub.swift; sourceTree = "<group>"; };
 		E8BF06402BCD2555008D2B6A /* InMemoryFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryFeedStore.swift; sourceTree = "<group>"; };
+		E8C3FAD72BDD088100A5934C /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				E8733AA02BC2AB060023CF63 /* Assets.xcassets */,
 				E8733AA22BC2AB060023CF63 /* LaunchScreen.storyboard */,
 				E8733AA52BC2AB060023CF63 /* Info.plist */,
+				E8C3FAD72BDD088100A5934C /* CombineHelpers.swift */,
 			);
 			path = EssentialApp;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			files = (
 				E8BF06242BCCFDC8008D2B6A /* WeakRefVirtualProxy.swift in Sources */,
 				E8BF06252BCCFDC8008D2B6A /* FeedUIComposer.swift in Sources */,
+				E8C3FAD82BDD088100A5934C /* CombineHelpers.swift in Sources */,
 				E8733A9C2BC2AB050023CF63 /* ViewController.swift in Sources */,
 				E8BF06232BCCFDC8008D2B6A /* FeedImageDataLoaderPresentationAdapter.swift in Sources */,
 				E8733A982BC2AB050023CF63 /* AppDelegate.swift in Sources */,
