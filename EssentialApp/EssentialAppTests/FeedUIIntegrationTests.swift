@@ -391,7 +391,10 @@ final class FeedUIIntegrationTests: XCTestCase {
         line: UInt = #line
     ) -> (sut: FeedViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let sut = FeedUIComposer.feedComposedWith(feedLoader: loader, imageLoader: loader)
+        let sut = FeedUIComposer.feedComposedWith(
+            feedLoader: loader.loadPublisher,
+            imageLoader: loader.loadImageDataPublisher
+        )
         
         trackForMemoryLeaks(instance: loader, file: file, line: line)
         trackForMemoryLeaks(instance: sut, file: file, line: line)
