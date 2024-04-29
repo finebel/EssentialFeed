@@ -304,8 +304,6 @@
 				E832B02E2B6F8DDC00329DD5 /* RemoteFeedLoader.swift */,
 				E87BB5BE2B71642E00AE86B8 /* FeedItemsMapper.swift */,
 				E87315802B77909000812006 /* RemoteFeedItem.swift */,
-				E896EE5A2BDE385A006E8BF5 /* RemoteImageCommentsLoader.swift */,
-				E896EE5C2BDE3974006E8BF5 /* ImageCommentsMapper.swift */,
 				E816F2332BBAE7040074D4F9 /* RemoteFeedImageDataLoader.swift */,
 			);
 			path = FeedAPI;
@@ -460,6 +458,23 @@
 			path = SharedAPIInfra;
 			sourceTree = "<group>";
 		};
+		E879045D2BE0111600FA1915 /* ImageCommentsAPI */ = {
+			isa = PBXGroup;
+			children = (
+				E896EE5A2BDE385A006E8BF5 /* RemoteImageCommentsLoader.swift */,
+				E896EE5C2BDE3974006E8BF5 /* ImageCommentsMapper.swift */,
+			);
+			path = ImageCommentsAPI;
+			sourceTree = "<group>";
+		};
+		E879045E2BE0114B00FA1915 /* ImageCommentsAPI */ = {
+			isa = PBXGroup;
+			children = (
+				E896EE582BDE3793006E8BF5 /* LoadImageCommentsFromRemoteUseCaseTests.swift */,
+			);
+			path = ImageCommentsAPI;
+			sourceTree = "<group>";
+		};
 		E87A6D752B932178002A461F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,7 +486,6 @@
 			isa = PBXGroup;
 			children = (
 				E8B1E0AC2B6EC52E0059573E /* LoadFeedFromRemoteUseCaseTests.swift */,
-				E896EE582BDE3793006E8BF5 /* LoadImageCommentsFromRemoteUseCaseTests.swift */,
 				E89FAC842BB983D000BE9A65 /* LoadFeedImageDataFromRemoteUseCaseTests.swift */,
 			);
 			path = FeedAPI;
@@ -586,6 +600,7 @@
 				E87904592BE00E1B00FA1915 /* SharedAPIInfra */,
 				E87904582BE00DF800FA1915 /* SharedAPI */,
 				E896EE622BDECE31006E8BF5 /* ImageCommentsFeature */,
+				E879045D2BE0111600FA1915 /* ImageCommentsAPI */,
 				E85E95B82BB6FA0F008ECAA7 /* FeedPresentation */,
 				E873157B2B7773B500812006 /* FeedCache */,
 				E832B02D2B6F8DC000329DD5 /* FeedAPI */,
@@ -597,12 +612,13 @@
 		E8B1E09B2B6EC3C00059573E /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
+				E896BB122B73D2FC00197288 /* Helpers */,
 				E879045C2BE00E7D00FA1915 /* SharedAPIInfra */,
 				E879045A2BE00E4700FA1915 /* SharedAPI */,
-				E8A1557B2BB6D8DA008BF057 /* FeedPresentation */,
-				E896BB122B73D2FC00197288 /* Helpers */,
-				E884EFF62B76618A00B95472 /* FeedCache */,
+				E879045E2BE0114B00FA1915 /* ImageCommentsAPI */,
 				E87BB5C02B716EED00AE86B8 /* FeedAPI */,
+				E884EFF62B76618A00B95472 /* FeedCache */,
+				E8A1557B2BB6D8DA008BF057 /* FeedPresentation */,
 			);
 			path = EssentialFeedTests;
 			sourceTree = "<group>";
