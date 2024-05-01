@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class ImageCommentsMapper {
-    static func map(_ data: Data, from response: HTTPURLResponse) throws -> [ImageComment] {
+public final class ImageCommentsMapper {
+    public static func map(_ data: Data, from response: HTTPURLResponse) throws -> [ImageComment] {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         
