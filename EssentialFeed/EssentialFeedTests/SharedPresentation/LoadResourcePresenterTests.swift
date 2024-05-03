@@ -52,6 +52,8 @@ final class LoadResourcePresenterTests: XCTestCase {
     
     // MARK: - Helpers
     
+    private typealias LoadResourcePresenter = EssentialFeed.LoadResourcePresenter<String, ViewSpy>
+    
     private func makeSUT(
         mapper: @escaping LoadResourcePresenter.Mapper = { _ in "any" },
         file: StaticString = #filePath,
@@ -70,6 +72,7 @@ final class LoadResourcePresenterTests: XCTestCase {
     }
     
     private class ViewSpy: FeedErrorView, FeedLoadingView, ResourceView {
+        typealias ResourceViewModel = String
         enum Message: Hashable {
             case display(errorMessage: String?)
             case display(isLoading: Bool)
