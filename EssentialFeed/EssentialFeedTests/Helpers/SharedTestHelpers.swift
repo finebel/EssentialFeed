@@ -29,3 +29,17 @@ extension HTTPURLResponse {
         self.init(url: anyURL(), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
     }
 }
+
+extension Date {
+    func adding(seconds: Int) -> Date {
+        Calendar(identifier: .gregorian).date(byAdding: .second, value: seconds, to: self)!
+    }
+    
+    func adding(minutes: Int) -> Date {
+        Calendar(identifier: .gregorian).date(byAdding: .minute, value: minutes, to: self)!
+    }
+    
+    func adding(days: Int) -> Date {
+        Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
+    }
+}
