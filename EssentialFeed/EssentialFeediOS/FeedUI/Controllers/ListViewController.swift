@@ -19,7 +19,7 @@ public protocol CellController {
     func setCell(_ cell: UITableViewCell)
 }
 
-public final class FeedViewController: UITableViewController, ResourceLoadingView, ResourceErrorView {
+public final class ListViewController: UITableViewController, ResourceLoadingView, ResourceErrorView {
     private var tableModel: [CellController] = [] {
         didSet {
             tableView.reloadData()
@@ -98,7 +98,7 @@ public final class FeedViewController: UITableViewController, ResourceLoadingVie
     }
 }
 
-extension FeedViewController: UITableViewDataSourcePrefetching {
+extension ListViewController: UITableViewDataSourcePrefetching {
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
             cellController(forRowAt: indexPath).preload()
