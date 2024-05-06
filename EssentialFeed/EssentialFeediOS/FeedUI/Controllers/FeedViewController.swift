@@ -12,14 +12,21 @@ public protocol FeedViewControllerDelegate {
     func didRequestFeedRefresh()
 }
 
+public protocol CellController {
+    func view(in tableView: UITableView) -> UITableViewCell
+    func preload()
+    func cancelLoad()
+    func setCell(_ cell: UITableViewCell)
+}
+
 public final class FeedViewController: UITableViewController, ResourceLoadingView, ResourceErrorView {
-    private var tableModel: [FeedImageCellController] = [] {
+    private var tableModel: [CellController] = [] {
         didSet {
             tableView.reloadData()
         }
     }
     
-    private var loadingControllers: [IndexPath: FeedImageCellController] = [:]
+    private var loadingControllers: [IndexPath: CellController] = [:]
     
     private var viewAppeared = false
     public var delegate: FeedViewControllerDelegate?
@@ -43,7 +50,7 @@ public final class FeedViewController: UITableViewController, ResourceLoadingVie
         delegate?.didRequestFeedRefresh()
     }
     
-    public func display(_ cellControllers: [FeedImageCellController]) {
+    public func display(_ cellControllers: [CellController]) {
         loadingControllers = [:]
         tableModel = cellControllers
     }
@@ -69,15 +76,16 @@ public final class FeedViewController: UITableViewController, ResourceLoadingVie
     }
 
     public override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // TODO: Revisit
         let cellController = cellController(forRowAt: indexPath)
-        (cell as? FeedImageCell).map(cellController.setCell)
+        cellController.setCell(cell)
     }
     
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cancelCellControllerLoad(forRowAt: indexPath)
     }
 
-    private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellController {
+    private func cellController(forRowAt indexPath: IndexPath) -> CellController {
         let controller = tableModel[indexPath.row]
         loadingControllers[indexPath] = controller
         
