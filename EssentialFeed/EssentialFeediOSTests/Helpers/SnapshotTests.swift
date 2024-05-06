@@ -7,9 +7,7 @@
 
 import XCTest
 
-protocol SnapshotTests: XCTestCase {}
-
-extension SnapshotTests {
+extension XCTestCase {
     func assert(snapshot: UIImage, named name: String, file: StaticString = #file, line: UInt = #line) {
         let snapshotData = makeSnapshotData(for: snapshot, file: file, line: line)
         let snapshotURL = makeSnapshotURL(named: name, file: file)
