@@ -15,6 +15,12 @@ public protocol CellController {
     func setCell(_ cell: UITableViewCell)
 }
 
+public extension CellController {
+    func preload() {}
+    func cancelLoad() {}
+    func setCell(_ cell: UITableViewCell) {}
+}
+
 public final class ListViewController: UITableViewController, ResourceLoadingView, ResourceErrorView {
     private var tableModel: [CellController] = [] {
         didSet {
