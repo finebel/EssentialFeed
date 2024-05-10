@@ -19,12 +19,12 @@ struct SnapshotConfiguration {
     let layoutMargins: UIEdgeInsets
     let traitCollection: UITraitCollection
 
-    static func iPhone(style: UIUserInterfaceStyle) -> SnapshotConfiguration {
+    static func iPhone(style: UIUserInterfaceStyle, contentSizeCategory: UIContentSizeCategory = .medium) -> SnapshotConfiguration {
         let traitCollection = UITraitCollection(
             mutations: { traits in
                 traits.forceTouchCapability = .unavailable
                 traits.layoutDirection = .leftToRight
-                traits.preferredContentSizeCategory = .medium
+                traits.preferredContentSizeCategory = contentSizeCategory
                 traits.userInterfaceIdiom = .phone
                 traits.horizontalSizeClass = .compact
                 traits.verticalSizeClass = .regular
