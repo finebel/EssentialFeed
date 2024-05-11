@@ -23,7 +23,7 @@ public final class CommentsUIComposer {
         )
         
         let feedController = Self.makeFeedViewController(
-            title: FeedPresenter.title
+            title: ImageCommentsPresenter.title
         )
         feedController.onRefresh = presentationAdapter.loadResource
         
@@ -46,7 +46,7 @@ public final class CommentsUIComposer {
         let feedController = storyboard.instantiateInitialViewController { coder in
             ListViewController(coder: coder)
         }!
-        feedController.title = FeedPresenter.title
+        feedController.title = title
         
         return feedController
     }

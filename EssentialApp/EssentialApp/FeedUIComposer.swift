@@ -47,7 +47,7 @@ public final class FeedUIComposer {
         let feedController = storyboard.instantiateInitialViewController { coder in
             ListViewController(coder: coder)
         }!
-        feedController.title = FeedPresenter.title
+        feedController.title = title
         
         return feedController
     }
