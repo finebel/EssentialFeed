@@ -42,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     // Declare it as attribute to hold a strong reference to it.
     private lazy var remoteFeedLoaderPublisher: AnyPublisher<[FeedImage], Error> = {
-        let remoteURL = baseURL.appending(path: "/v1/feed")
+        let remoteURL = FeedEndpoint.get.url(baseURL: baseURL)
 
         return httpClient
             .getPublisher(url: remoteURL)
@@ -73,7 +73,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func showComments(for image: FeedImage) {
-        let url = baseURL.appending(path: "/v1/image/\(image.id.uuidString)/comments")
+        let url = ImageCommentsEndpoint.get(image.id).url(baseURL: baseURL)
         let comments = CommentsUIComposer.commentsComposedWith(commentsLoader: makeRemoteCommentsLoader(url: url))
         
         navigationController.pushViewController(comments, animated: true)
