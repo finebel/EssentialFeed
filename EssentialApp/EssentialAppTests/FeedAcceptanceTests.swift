@@ -15,8 +15,8 @@ final class FeedAcceptanceTests: XCTestCase {
         let feed = launch(httpClient: .online(response), store: .empty)
         
         XCTAssertEqual(feed.numberOfRenderedFeedImageViews(), 2)
-        XCTAssertEqual(feed.renderedFeedImageData(at: 0), makeImageData())
-        XCTAssertEqual(feed.renderedFeedImageData(at: 1), makeImageData())
+        XCTAssertEqual(feed.renderedFeedImageData(at: 0), makeImageData0())
+        XCTAssertEqual(feed.renderedFeedImageData(at: 1), makeImageData1())
     }
     
     func test_onLaunch_displaysCachedRemoteFeedWhenCustomerHasNoConnectivity() {
@@ -28,8 +28,8 @@ final class FeedAcceptanceTests: XCTestCase {
         let offlineFeed = launch(httpClient: .offline, store: sharedStore)
         
         XCTAssertEqual(offlineFeed.numberOfRenderedFeedImageViews(), 2)
-        XCTAssertEqual(offlineFeed.renderedFeedImageData(at: 0), makeImageData())
-        XCTAssertEqual(offlineFeed.renderedFeedImageData(at: 1), makeImageData())
+        XCTAssertEqual(offlineFeed.renderedFeedImageData(at: 0), makeImageData0())
+        XCTAssertEqual(offlineFeed.renderedFeedImageData(at: 1), makeImageData1())
     }
     
     func test_onLaunch_displaysEmptyFeedWhenCustomerHasNoConnectivityAndNoCache() {
@@ -101,8 +101,11 @@ final class FeedAcceptanceTests: XCTestCase {
 
     private func makeData(for url: URL) -> Data {
         switch url.path {
-        case "/image-1", "/image-2":
-            return makeImageData()
+        case "/image-0":
+            return makeImageData0()
+            
+        case "/image-1":
+            return makeImageData1()
 
         case "/essential-feed/v1/feed":
             return makeFeedData()
@@ -115,14 +118,13 @@ final class FeedAcceptanceTests: XCTestCase {
         }
     }
 
-    private func makeImageData() -> Data {
-        UIImage.make(withColor: .red).pngData()!
-    }
+    private func makeImageData0() -> Data { UIImage.make(withColor: .red).pngData()! }
+    private func makeImageData1() -> Data { UIImage.make(withColor: .green).pngData()! }
 
     private func makeFeedData() -> Data {
         return try! JSONSerialization.data(withJSONObject: ["items": [
-            ["id": "CB7721A7-22C8-4EFE-A013-8AABF2326A12", "image": "http://feed.com/image-1"],
-            ["id": "B2D1FA4B-17B2-4790-B831-98FE133910DE", "image": "http://feed.com/image-2"]
+            ["id": "CB7721A7-22C8-4EFE-A013-8AABF2326A12", "image": "http://feed.com/image-0"],
+            ["id": "B2D1FA4B-17B2-4790-B831-98FE133910DE", "image": "http://feed.com/image-1"]
         ]])
     }
     
