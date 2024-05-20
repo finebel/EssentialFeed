@@ -40,15 +40,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         )
     )
     
-    // Declare it as attribute to hold a strong reference to it.
-    private lazy var remoteFeedLoaderPublisher: AnyPublisher<[FeedImage], Error> = {
-        let remoteURL = FeedEndpoint.get().url(baseURL: baseURL)
-
-        return httpClient
-            .getPublisher(url: remoteURL)
+    private func makeRemoteFeedLoader(url: URL) -> AnyPublisher<[FeedImage], Error> {
+        httpClient
+            .getPublisher(url: url)
             .tryMap(FeedItemsMapper.map)
             .eraseToAnyPublisher()
-    }()
+    }
         
     convenience init(httpClient: HTTPClient, store: FeedStore & FeedImageDataStore) {
         self.init()
@@ -89,13 +86,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func makeRemoteFeedLoaderWithLocalFallback() -> AnyPublisher<Paginated<FeedImage>, Error> {
-        remoteFeedLoaderPublisher
+        let remoteURL = FeedEndpoint.get().url(baseURL: baseURL)
+        
+        return makeRemoteFeedLoader(url: remoteURL)
             .caching(to: localFeedLoader)
             .fallback(to: localFeedLoader.loadPublisher)
-            .map {
-                Paginated(items: $0)
+            .map { items in
+                Paginated(items: items, loadMorePublisher: self.makeRemoteLoadMoreLoader(items: items, last: items.last))
             }
             .eraseToAnyPublisher()
+    }
+    
+    private func makeRemoteLoadMoreLoader(items: [FeedImage], last: FeedImage?) -> (() -> AnyPublisher<Paginated<FeedImage>, Error>)? {
+        last.map { lastItem in
+            let url = FeedEndpoint.get(after: lastItem).url(baseURL: baseURL)
+            
+            return {
+                self.makeRemoteFeedLoader(url: url)
+                    .map { newItems in
+                        let allItems = items + newItems
+                        return Paginated(
+                            items: allItems,
+                            loadMorePublisher: self.makeRemoteLoadMoreLoader(items: allItems, last: newItems.last)
+                        )
+                    }
+                    .eraseToAnyPublisher()
+            }
+        }
     }
     
     private func makeLocalImageLoaderWithRemoteFallback(url: URL) -> FeedImageDataLoader.Publisher {
