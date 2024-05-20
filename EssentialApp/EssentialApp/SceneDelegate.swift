@@ -101,7 +101,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         last.map { lastItem in
             let url = FeedEndpoint.get(after: lastItem).url(baseURL: baseURL)
             
-            return {
+            return { [localFeedLoader] in
                 self.makeRemoteFeedLoader(url: url)
                     .map { newItems in
                         let allItems = items + newItems
@@ -110,6 +110,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                             loadMorePublisher: self.makeRemoteLoadMoreLoader(items: allItems, last: newItems.last)
                         )
                     }
+                    .caching(to: localFeedLoader)
                     .eraseToAnyPublisher()
             }
         }
