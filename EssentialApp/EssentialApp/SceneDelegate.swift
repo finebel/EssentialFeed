@@ -42,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     // Declare it as attribute to hold a strong reference to it.
     private lazy var remoteFeedLoaderPublisher: AnyPublisher<[FeedImage], Error> = {
-        let remoteURL = FeedEndpoint.get.url(baseURL: baseURL)
+        let remoteURL = FeedEndpoint.get().url(baseURL: baseURL)
 
         return httpClient
             .getPublisher(url: remoteURL)
