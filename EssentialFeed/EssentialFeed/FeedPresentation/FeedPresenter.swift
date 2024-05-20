@@ -17,6 +17,7 @@ public final class FeedPresenter {
         )
     }
     
+    // TODO: - Currently, we don't use this method in production. So it might be deleted.
     public static func map(_ feed: [FeedImage]) -> FeedViewModel {
         FeedViewModel(feed: feed)
     }

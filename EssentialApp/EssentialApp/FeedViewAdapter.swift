@@ -15,6 +15,7 @@ final class FeedViewAdapter: ResourceView {
     private let selection: (FeedImage) -> Void
     
     private typealias ImageDataPresentationAdapter = LoadResourcePresentationAdapter<Data, WeakRefVirtualProxy<FeedImageCellController>>
+    private typealias LoadMorePresentationAdapter = LoadResourcePresentationAdapter<Paginated<FeedImage>, FeedViewAdapter>
     
     init(
         controller: ListViewController,
@@ -26,32 +27,50 @@ final class FeedViewAdapter: ResourceView {
         self.selection = selection
     }
     
-    func display(_ viewModel: FeedViewModel) {
-        controller?.display(
-            viewModel.feed.map { model in
-                let adapter = ImageDataPresentationAdapter(
-                    loader: { [imageLoader] in
-                        imageLoader(model.url)
-                    }
-                )
-                let view = FeedImageCellController(
-                    viewModel: FeedImagePresenter.map(model),
-                    delegate: adapter,
-                    selection: { [selection] in
-                        selection(model)
-                    }
-                )
-                
-                adapter.presenter = LoadResourcePresenter(
-                    resourceView: WeakRefVirtualProxy(view),
-                    loadingView: WeakRefVirtualProxy(view),
-                    errorView: WeakRefVirtualProxy(view),
-                    mapper: UIImage.tryMake
-                )
-                
-                return CellController(id: model,view)
-            }
+    func display(_ viewModel: Paginated<FeedImage>) {
+        let feedSection: [CellController] = viewModel.items.map { model in
+            let adapter = ImageDataPresentationAdapter(
+                loader: { [imageLoader] in
+                    imageLoader(model.url)
+                }
+            )
+            let view = FeedImageCellController(
+                viewModel: FeedImagePresenter.map(model),
+                delegate: adapter,
+                selection: { [selection] in
+                    selection(model)
+                }
+            )
+            
+            adapter.presenter = LoadResourcePresenter(
+                resourceView: WeakRefVirtualProxy(view),
+                loadingView: WeakRefVirtualProxy(view),
+                errorView: WeakRefVirtualProxy(view),
+                mapper: UIImage.tryMake
+            )
+            
+            return CellController(id: model,view)
+        }
+        
+        guard let loadMorePublisher = viewModel.loadMorePublisher else {
+            controller?.display(feedSection)
+            return
+        }
+        
+        let loadMoreAdapter = LoadMorePresentationAdapter(loader: loadMorePublisher)
+        
+        let loadMoreController = LoadMoreCellController(callback: loadMoreAdapter.loadResource)
+        
+        loadMoreAdapter.presenter = LoadResourcePresenter(
+            resourceView: self,
+            loadingView: WeakRefVirtualProxy(loadMoreController),
+            errorView: WeakRefVirtualProxy(loadMoreController),
+            mapper: { $0 }
         )
+        
+        let loadMoreSection = [CellController(id: UUID(), loadMoreController)]
+        
+        controller?.display(feedSection, loadMoreSection)
     }
 }
 
