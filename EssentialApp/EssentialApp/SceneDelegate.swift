@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .defaultDirectoryURL()
             .appending(component: "feed-store.sqlite")
         
-        return try! CoreDataFeedStore(storeURL: url)
+        return (try? CoreDataFeedStore(storeURL: url)) ?? NullStore()
     }()
     
     private lazy var localFeedLoader: LocalFeedLoader = {
