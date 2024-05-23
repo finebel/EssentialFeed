@@ -19,11 +19,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }()
         
     private lazy var store: FeedStore & FeedImageDataStore = {
-        let url = NSPersistentContainer
-            .defaultDirectoryURL()
-            .appending(component: "feed-store.sqlite")
-        
-        return (try? CoreDataFeedStore(storeURL: url)) ?? NullStore()
+        do {
+            let url = NSPersistentContainer
+                .defaultDirectoryURL()
+                .appending(component: "feed-store.sqlite")
+            
+            return try CoreDataFeedStore(storeURL: url)
+        } catch {
+            assertionFailure("Failed to instantiate CoreData store with error: \(error.localizedDescription)")
+            return NullStore()
+        }
     }()
     
     private lazy var localFeedLoader: LocalFeedLoader = {
