@@ -515,7 +515,7 @@ class FeedUIIntegrationTests: XCTestCase {
         XCTAssertNil(view?.renderedImage, "Expected no rendered image when an image load finishes after the view is not visible anymore")
     }
     
-    func test_feedImageView_doesNotLoadImagesAgainUntilPreviousRequestCompletes() {
+    func test_feedImageView_doesNotLoadImageAgainUntilPreviousRequestCompletes() {
         let image = makeImage(url: URL(string: "https://url-0.com")!)
         let (sut, loader) = makeSUT()
         
@@ -535,6 +535,11 @@ class FeedUIIntegrationTests: XCTestCase {
         sut.simulateFeedImageViewNotVisible(at: 0)
         sut.simulateFeedImageViewVisible(at: 0)
         XCTAssertEqual(loader.loadedImageURLs, [image.url, image.url, image.url], "Expected third request when image becomes visible after cancelling previous request")
+        
+        sut.simulateLoadMoreFeedAction()
+        loader.completeLoadMore(with: [image, makeImage()], at: 0)
+        sut.simulateFeedImageViewVisible(at: 0)
+        XCTAssertEqual(loader.loadedImageURLs, [image.url, image.url, image.url], "Expected no new request, since only the existing image is visible so far and this image is already loading (request hasn't been completed yet)")
     }
     
     func test_loadImageDataCompletion_dispatchesFromBackgroundToMainThread() {
