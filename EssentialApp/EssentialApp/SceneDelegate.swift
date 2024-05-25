@@ -5,6 +5,7 @@
 //  Created by Finn Ebeling on 07.04.24.
 //
 
+import os
 import UIKit
 import CoreData
 import Combine
@@ -17,13 +18,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private lazy var httpClient: HTTPClient = {
         URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
     }()
-        
+    
+    private lazy var logger = Logger(subsystem: "de.finnebeling.EssentialApp", category: "main")
+    
     private lazy var store: FeedStore & FeedImageDataStore = {
-        let url = NSPersistentContainer
-            .defaultDirectoryURL()
-            .appending(component: "feed-store.sqlite")
-        
-        return try! CoreDataFeedStore(storeURL: url)
+        do {
+            let url = NSPersistentContainer
+                .defaultDirectoryURL()
+                .appending(component: "feed-store.sqlite")
+            
+            return try CoreDataFeedStore(storeURL: url)
+        } catch {
+            assertionFailure("Failed to instantiate CoreData store with error: \(error.localizedDescription)")
+            logger.fault("Failed to instantiate CoreData store with error: \(error.localizedDescription)")
+            return NullStore()
+        }
     }()
     
     private lazy var localFeedLoader: LocalFeedLoader = {

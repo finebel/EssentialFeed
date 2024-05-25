@@ -1,5 +1,5 @@
 //
-//  CoreDataFeedStore+FeedImageDataLoader.swift
+//  CoreDataFeedStore+FeedImageDataStore.swift
 //  EssentialFeed
 //
 //  Created by Finn Ebeling on 06.04.24.
@@ -12,7 +12,7 @@ extension CoreDataFeedStore: FeedImageDataStore {
         perform { context in
             completion(
                 Result {
-                    try ManagedFeedImage.first(with: url, in: context)?.data
+                    try ManagedFeedImage.data(with: url, in: context)
                 }
             )
         }
