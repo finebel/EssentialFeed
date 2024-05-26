@@ -30,44 +30,20 @@ extension LocalFeedImageDataLoader: FeedImageDataCache {
 }
 
 extension LocalFeedImageDataLoader: FeedImageDataLoader {
-    private final class LoadImageTask: FeedImageDataLoaderTask {
-        private var completion: ((FeedImageDataLoader.Result) -> Void)?
-        
-        init(_ completion: (@escaping (FeedImageDataLoader.Result) -> Void)) {
-            self.completion = completion
-        }
-        
-        func complete(with result: FeedImageDataLoader.Result) {
-            completion?(result)
-        }
-        
-        func cancel() {
-            preventFurtherCompletion()
-        }
-        
-        private func preventFurtherCompletion() {
-            completion = nil
-        }
-    }
-    
     public enum LoadError: Swift.Error {
         case failed
         case notFound
     }
     
-    public func loadImageData(from url: URL, completion: @escaping ((FeedImageDataLoader.Result) -> Void)) -> FeedImageDataLoaderTask {
-        let task = LoadImageTask(completion)
+    public func loadImageData(from url: URL) throws -> Data {
+        do {
+            if let data = try store.retrieve(dataForURL: url) {
+                return data
+            }
+        } catch {
+            throw LoadError.failed
+        }
         
-        task.complete(
-            with: Swift.Result {
-                try store.retrieve(dataForURL: url)
-            }
-            .mapError { _ in LoadError.failed }
-            .flatMap { data in
-                data.map { .success($0) } ?? .failure(LoadError.notFound)
-            }
-        )
-
-        return task
+        throw LoadError.notFound
     }
 }
