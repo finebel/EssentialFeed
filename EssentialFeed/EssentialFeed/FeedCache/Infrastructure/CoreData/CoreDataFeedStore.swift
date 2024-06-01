@@ -21,7 +21,12 @@ public final class CoreDataFeedStore {
         case failedToLoadPersistentStores(Error)
     }
     
-    public init(storeURL: URL) throws {
+    public enum ContextQueue {
+        case main
+        case background
+    }
+    
+    public init(storeURL: URL, contextQueue: ContextQueue = .main) throws {
         let bundle = Bundle(for: Self.self)
         guard let model = Self.model else {
             throw StoreError.modelNotFound
@@ -29,7 +34,7 @@ public final class CoreDataFeedStore {
         
         do {
             self.container = try NSPersistentContainer.load(name: Self.modelName, model: model, url: storeURL, in: bundle)
-            context = container.newBackgroundContext()
+            context = contextQueue == .main ? container.viewContext : container.newBackgroundContext()
         } catch {
             throw StoreError.failedToLoadPersistentStores(error)
         }
