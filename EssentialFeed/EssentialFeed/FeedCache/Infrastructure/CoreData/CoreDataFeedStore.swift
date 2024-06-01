@@ -26,6 +26,10 @@ public final class CoreDataFeedStore {
         case background
     }
     
+    public var contextQueue: ContextQueue {
+        context == container.viewContext ? .main : .background
+    }
+    
     public init(storeURL: URL, contextQueue: ContextQueue = .main) throws {
         let bundle = Bundle(for: Self.self)
         guard let model = Self.model else {
