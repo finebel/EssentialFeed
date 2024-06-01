@@ -12,7 +12,7 @@ import EssentialFeed
 extension FeedImageDataStoreSpecs where Self: XCTestCase {
     func assertThatRetrieveImageDataDeliversNotFoundWhenEmpty(
         on sut: FeedImageDataStore,
-        imageDataURL: URL,
+        imageDataURL: URL = anyURL(),
         file: StaticString = #filePath,
         line: UInt = #line
     ) {
@@ -21,7 +21,7 @@ extension FeedImageDataStoreSpecs where Self: XCTestCase {
     
     func assertThatRetrieveImageDataDeliversNotFoundWhenStoredDataURLDoesNotMatch(
         on sut: FeedImageDataStore,
-        imageDataURL: URL,
+        imageDataURL: URL = anyURL(),
         file: StaticString = #filePath,
         line: UInt = #line
     ) {
@@ -34,7 +34,7 @@ extension FeedImageDataStoreSpecs where Self: XCTestCase {
     
     func assertThatRetrieveImageDataDeliversFoundDataWhenThereIsAStoredImageDataMatchingURL(
         on sut: FeedImageDataStore,
-        imageDataURL: URL,
+        imageDataURL: URL = anyURL(),
         file: StaticString = #filePath,
         line: UInt = #line
     ) {
@@ -47,7 +47,7 @@ extension FeedImageDataStoreSpecs where Self: XCTestCase {
     
     func assertThatRetrieveImageDataDeliversLastInsertedValue(
         on sut: FeedImageDataStore,
-        imageDataURL: URL,
+        imageDataURL: URL = anyURL(),
         file: StaticString = #filePath,
         line: UInt = #line
     ) {
