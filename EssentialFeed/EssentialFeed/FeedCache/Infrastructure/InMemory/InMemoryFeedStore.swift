@@ -8,13 +8,10 @@
 import Foundation
 
 public class InMemoryFeedStore {
-    private(set) var feedCache: CachedFeed?
-    private var feedImageDataCache: [URL: Data]
+    private var feedCache: CachedFeed?
+    private var feedImageDataCache = NSCache<NSURL, NSData>()
     
-    public init(feedCache: CachedFeed? = nil, feedImageDataCache: [URL : Data] = [:]) {
-        self.feedCache = feedCache
-        self.feedImageDataCache = feedImageDataCache
-    }
+    public init() {}
     
 }
 
@@ -34,10 +31,10 @@ extension InMemoryFeedStore: FeedStore {
 
 extension InMemoryFeedStore: FeedImageDataStore {
     public func retrieve(dataForURL url: URL) throws -> Data? {
-        feedImageDataCache[url]
+        feedImageDataCache.object(forKey: url as NSURL) as Data?
     }
     
     public func insert(_ data: Data, for url: URL) throws {
-        feedImageDataCache[url] = data
+        feedImageDataCache.setObject(data as NSData, forKey: url as NSURL)
     }
 }
