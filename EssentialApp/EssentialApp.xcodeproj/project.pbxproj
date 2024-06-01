@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E80833DA2BFF228C00E8E4CE /* NullStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80833D92BFF228C00E8E4CE /* NullStore.swift */; };
 		E83BE59D2BEFAA1700F9A8F4 /* CommentsUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83BE59C2BEFAA1700F9A8F4 /* CommentsUIIntegrationTests.swift */; };
 		E83BE59F2BEFAD3200F9A8F4 /* CommentsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83BE59E2BEFAD3200F9A8F4 /* CommentsUIComposer.swift */; };
 		E84384642BC86A500022E869 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84384632BC86A500022E869 /* XCTestCase+MemoryLeakTracking.swift */; };
@@ -67,7 +66,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E80833D92BFF228C00E8E4CE /* NullStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullStore.swift; sourceTree = "<group>"; };
 		E823024E2BCA9140006E1F23 /* EssentialApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialApp.xctestplan; sourceTree = "<group>"; };
 		E83BE59C2BEFAA1700F9A8F4 /* CommentsUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsUIIntegrationTests.swift; sourceTree = "<group>"; };
 		E83BE59E2BEFAD3200F9A8F4 /* CommentsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsUIComposer.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 			children = (
 				E8733A972BC2AB050023CF63 /* AppDelegate.swift */,
 				E8733A992BC2AB050023CF63 /* SceneDelegate.swift */,
-				E80833D92BFF228C00E8E4CE /* NullStore.swift */,
 				E8C3FAD72BDD088100A5934C /* CombineHelpers.swift */,
 				E8733A9B2BC2AB050023CF63 /* ViewController.swift */,
 				E8BF06212BCCFDC8008D2B6A /* FeedUIComposer.swift */,
@@ -329,7 +326,6 @@
 			files = (
 				E8BF06242BCCFDC8008D2B6A /* WeakRefVirtualProxy.swift in Sources */,
 				E8BF06252BCCFDC8008D2B6A /* FeedUIComposer.swift in Sources */,
-				E80833DA2BFF228C00E8E4CE /* NullStore.swift in Sources */,
 				E8C3FAD82BDD088100A5934C /* CombineHelpers.swift in Sources */,
 				E8733A9C2BC2AB050023CF63 /* ViewController.swift in Sources */,
 				E83BE59F2BEFAD3200F9A8F4 /* CommentsUIComposer.swift in Sources */,
