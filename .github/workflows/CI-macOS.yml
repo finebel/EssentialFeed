@@ -1,0 +1,31 @@
+name: CI-macOS
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: macos-14
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_15.2.app
+
+      - name: Xcode version
+        run: xcodebuild -version
+
+      - name: Build and Test CI_macOS Scheme
+        run: |
+          set -o pipefail && xcodebuild clean build test \
+          -project EssentialFeed/EssentialFeed.xcodeproj \
+          -scheme CI_macOS \
+          -sdk macosx \
+          -destination "platform=macOS" \
+          -testPlan CI_macOS \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          ONLY_ACTIVE_ARCH=YES | xcbeautify --renderer github-actions
