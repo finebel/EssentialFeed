@@ -21,6 +21,14 @@ let project = Project(
                     )
                 )
             ]
+        ),
+        .target(
+            name: "EssentialFeedTests",
+            destinations: [.iPhone, .mac],
+            product: .unitTests,
+            bundleId: "de.finnebeling.EssentialFeedTests",
+            sources: ["Sources/EssentialFeedTests/**"],
+            dependencies: [.target(name: "EssentialFeed")]
         )
     ]
 )
