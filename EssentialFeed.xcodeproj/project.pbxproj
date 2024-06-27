@@ -33,9 +33,7 @@
 		8CF6AE3C8DC421FF05B62DA0 /* FeedStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB0F14609F4A69A472B88F49 /* FeedStore.xcdatamodeld */; };
 		9506F76AE856A670CF92551D /* FeedCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D35B90A2E3FF66C07CC77CF /* FeedCachePolicy.swift */; };
 		9B945001ABB10ACB2888C1F0 /* ResourceErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E8FCA2EFE956F0C3B60E62 /* ResourceErrorView.swift */; };
-		9DA2B5951B5DB1111A0BAFFC /* TuistStrings+EssentialFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1EDC03454EE0DD3BA4C371 /* TuistStrings+EssentialFeed.swift */; };
 		9E62EB8E13FA256A81133C2B /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF299FA8B8EBB6E04415B35 /* FeedPresenter.swift */; };
-		A49C1ACFA96D7219111930D9 /* TuistBundle+EssentialFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9E940EA9468A34B344FEA7 /* TuistBundle+EssentialFeed.swift */; };
 		A9A065450381C37A7A72E582 /* Paginated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B75E0BECD968BDE2E29DEB0 /* Paginated.swift */; };
 		AECC18E4A45260C065037C3B /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1C8CE47EAB19FD64DAC004 /* CoreDataHelpers.swift */; };
 		B27376357AB2027FF71BB749 /* ImageComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB15D1795D5FA1BA55CE116 /* ImageComment.swift */; };
@@ -87,7 +85,6 @@
 		6205B4C629A00CAA45DC0572 /* FeedImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageViewModel.swift; sourceTree = "<group>"; };
 		65E8FCA2EFE956F0C3B60E62 /* ResourceErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceErrorView.swift; sourceTree = "<group>"; };
 		6E475D16C59139C550405E1F /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
-		6E9E940EA9468A34B344FEA7 /* TuistBundle+EssentialFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+EssentialFeed.swift"; sourceTree = "<group>"; };
 		80C800CC9D4FF37463EC7CD8 /* InMemoryFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryFeedStore.swift; sourceTree = "<group>"; };
 		84B736984379DDDAA01ED1D3 /* ManagedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCache.swift; sourceTree = "<group>"; };
 		88AF16308E585AE42E1E2CF1 /* FeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImage.swift; sourceTree = "<group>"; };
@@ -97,7 +94,6 @@
 		8EE4DAA1659D88A0433F9DD8 /* CoreDataFeedStore+FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataFeedStore+FeedStore.swift"; sourceTree = "<group>"; };
 		901D03138A8AF85E15A5D235 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		9A631FED1AD8905D43EACE39 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
-		9E1EDC03454EE0DD3BA4C371 /* TuistStrings+EssentialFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistStrings+EssentialFeed.swift"; sourceTree = "<group>"; };
 		A099A8C07924FCA88A95F1A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Feed.strings; sourceTree = "<group>"; };
 		A0DAE985178A833037E4C661 /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A239B145B579CC60BC3F2EF1 /* LoadResourcePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadResourcePresenter.swift; sourceTree = "<group>"; };
@@ -256,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				7249D9DBC1B5DBB9A5953BF9 /* InfoPlists */,
-				A7EF31820091FA77C68F6FB5 /* Sources */,
 			);
 			path = Derived;
 			sourceTree = "<group>";
@@ -298,15 +293,6 @@
 				F37A6F6787FB80CFA3E61413 /* Sources */,
 			);
 			name = Project;
-			sourceTree = "<group>";
-		};
-		A7EF31820091FA77C68F6FB5 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				6E9E940EA9468A34B344FEA7 /* TuistBundle+EssentialFeed.swift */,
-				9E1EDC03454EE0DD3BA4C371 /* TuistStrings+EssentialFeed.swift */,
-			);
-			path = Sources;
 			sourceTree = "<group>";
 		};
 		BDADC04FC7426B67943E0E3B /* SharedAPIInfra */ = {
@@ -435,8 +421,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A49C1ACFA96D7219111930D9 /* TuistBundle+EssentialFeed.swift in Sources */,
-				9DA2B5951B5DB1111A0BAFFC /* TuistStrings+EssentialFeed.swift in Sources */,
 				36D8DD7BBEECCC2DFD395CBF /* FeedEndpoint.swift in Sources */,
 				327339FE08DC44AE7A96A564 /* FeedImageDataMapper.swift in Sources */,
 				1B535A84A010AA164C66BBF2 /* FeedItemsMapper.swift in Sources */,
