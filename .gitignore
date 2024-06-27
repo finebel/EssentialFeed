@@ -2,3 +2,10 @@ xcuserdata/
 .DS_Store
 signingAssets/
 DerivedData/
+
+### Tuist derived files ###
+graph.dot
+Derived/
+
+### Tuist managed dependencies ###
+Tuist/.build
