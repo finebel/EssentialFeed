@@ -8,7 +8,8 @@ let project = Project(
             destinations: [.iPhone, .mac],
             product: .framework,
             bundleId: "de.finnebeling.EssentialFeed",
-            sources: ["Sources/EssentialFeed/**"]
+            sources: ["Sources/EssentialFeed/**"],
+            resources: ["Resources/EssentialFeed/**"]
         )
     ]
 )
