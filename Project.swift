@@ -9,7 +9,14 @@ let project = Project(
             product: .framework,
             bundleId: "de.finnebeling.EssentialFeed",
             sources: ["Sources/EssentialFeed/**"],
-            resources: ["Resources/EssentialFeed/**"]
+            resources: ["Resources/EssentialFeed/**"],
+            coreDataModels: [
+                .coreDataModel(
+                    .path(
+                        "Sources/EssentialFeed/FeedCache/Infrastructure/CoreData/FeedStore.xcdatamodeld"
+                    )
+                )
+            ]
         )
     ]
 )
