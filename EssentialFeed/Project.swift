@@ -13,7 +13,7 @@ let project = Project(
             product: .framework,
             bundleId: "de.finnebeling.EssentialFeed",
             sources: ["EssentialFeed/**"],
-            resources: ["EssentialFeed/Resources/**"],
+            resources: ["EssentialFeed/**/*.strings"],
             coreDataModels: [
                 .coreDataModel(
                     .path(
@@ -54,7 +54,6 @@ let project = Project(
             sources: ["EssentialFeediOS/**"],
             resources: [
                 "EssentialFeediOS/**/*.storyboard",
-                "EssentialFeediOS/**/*.strings",
                 "EssentialFeediOS/**/*.xcassets"
             ],
             dependencies: [.target(name: "EssentialFeed")]
