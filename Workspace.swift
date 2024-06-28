@@ -2,6 +2,6 @@ import ProjectDescription
 
 let workspace = Workspace(
     name: "EssentialApp",
-    projects: ["EssentialFeedNew"]
+    projects: ["EssentialFeedNew", "EssentialAppNew"]
 )
 
