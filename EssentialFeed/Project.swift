@@ -1,5 +1,19 @@
 import ProjectDescription
 
+let essentialFeedSettings: Settings = .settings(
+    configurations: [
+        .debug(name: "Debug", xcconfig: .path("../ConfigFiles/EssentialFeed.xcconfig")),
+        .release(name: "Release", xcconfig: .path("../ConfigFiles/EssentialFeed.xcconfig"))
+    ]
+)
+
+let essentialFeediOSSettings: Settings = .settings(
+    configurations: [
+        .debug(name: "Debug", xcconfig: .path("../ConfigFiles/EssentialFeediOS.xcconfig")),
+        .release(name: "Release", xcconfig: .path("../ConfigFiles/EssentialFeediOS.xcconfig"))
+    ]
+)
+
 let project = Project(
     name: "EssentialFeed",
     options: .options(
@@ -14,6 +28,7 @@ let project = Project(
             bundleId: "de.finnebeling.EssentialFeed",
             sources: ["EssentialFeed/**"],
             resources: ["EssentialFeed/**/*.strings"],
+            settings: essentialFeedSettings,
             coreDataModels: [
                 .coreDataModel(
                     .path(
@@ -56,7 +71,8 @@ let project = Project(
                 "EssentialFeediOS/**/*.storyboard",
                 "EssentialFeediOS/**/*.xcassets"
             ],
-            dependencies: [.target(name: "EssentialFeed")]
+            dependencies: [.target(name: "EssentialFeed")],
+            settings: essentialFeediOSSettings
         ),
         .target(
             name: "EssentialFeediOSTests",

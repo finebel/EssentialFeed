@@ -245,6 +245,7 @@
 		1903D49C6CBA067751653234 /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
 		1BD4688B1CCF503A6BC19FC8 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		1CAA70EA6464A33A8C9789E9 /* ImageCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommentCell.swift; sourceTree = "<group>"; };
+		200863AAFE4B287C9894CF62 /* EssentialFeediOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = EssentialFeediOS.xcconfig; sourceTree = "<group>"; };
 		20FB5314CAEE19D80662B3FF /* CacheFeedImageDataUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedImageDataUseCaseTests.swift; sourceTree = "<group>"; };
 		21F7103A07CB7FA700A84AE4 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Feed.strings; sourceTree = "<group>"; };
 		24CB056CCED5A029D5E03CC9 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
@@ -335,6 +336,7 @@
 		D527EAF1A75FE42041073129 /* LocalFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImageDataLoader.swift; sourceTree = "<group>"; };
 		D6E119DDF71076F24D9A8900 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Shared.strings"; sourceTree = "<group>"; };
 		D7184D4B2F39216F6B0A6946 /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D83847D5883DC4F94E76FEBD /* EssentialFeed.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = EssentialFeed.xcconfig; sourceTree = "<group>"; };
 		DB88871279EA301D03C1AB5A /* ImageCommentCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommentCellController.swift; sourceTree = "<group>"; };
 		DBC1CBD8BEB8F019CEE8381D /* FeedLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLocalizationTests.swift; sourceTree = "<group>"; };
 		DDDC50E55F8591D2826FF903 /* FeedCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCachePolicy.swift; sourceTree = "<group>"; };
@@ -617,6 +619,16 @@
 			path = ImageCommentsAPI;
 			sourceTree = "<group>";
 		};
+		5C8FFA49C7F4AAB8A08665FF /* ConfigFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D83847D5883DC4F94E76FEBD /* EssentialFeed.xcconfig */,
+				200863AAFE4B287C9894CF62 /* EssentialFeediOS.xcconfig */,
+			);
+			name = ConfigFiles;
+			path = ../ConfigFiles;
+			sourceTree = "<group>";
+		};
 		60C091C119EC30CD09D4422F /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -765,6 +777,7 @@
 		A5A46A236E797FBF8B5E4E56 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				5C8FFA49C7F4AAB8A08665FF /* ConfigFiles */,
 				7FB1A441CFFF8938E792AB3E /* Derived */,
 				19AD1951F267E628843FA706 /* EssentialFeed */,
 				E1A8F8AF6C0C084E8AB9EB5A /* EssentialFeedAPIEndToEndTests */,
@@ -1420,6 +1433,7 @@
 		};
 		2BF2CCD0705F055B7D9A0202 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D83847D5883DC4F94E76FEBD /* EssentialFeed.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1461,6 +1475,7 @@
 		};
 		41F7290F2D9F4B7DDC054727 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 200863AAFE4B287C9894CF62 /* EssentialFeediOS.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1666,6 +1681,7 @@
 		};
 		9D025E61E7B3E65010DAC237 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D83847D5883DC4F94E76FEBD /* EssentialFeed.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1763,6 +1779,7 @@
 		};
 		F0FB84C50A31FB2119285413 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 200863AAFE4B287C9894CF62 /* EssentialFeediOS.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
