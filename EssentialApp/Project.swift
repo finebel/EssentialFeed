@@ -1,5 +1,12 @@
 import ProjectDescription
 
+let essentialAppSettings: Settings = .settings(
+    configurations: [
+        .debug(name: "Debug", xcconfig: .path("../ConfigFiles/EssentialApp.xcconfig")),
+        .release(name: "Release", xcconfig: .path("../ConfigFiles/EssentialApp.xcconfig"))
+    ]
+)
+
 let project = Project(
     name: "EssentialApp",
     options: .options(
@@ -12,22 +19,7 @@ let project = Project(
             destinations: [.iPhone],
             product: .app,
             bundleId: "de.finnebeling.EssentialApp",
-            infoPlist: .extendingDefault(
-                with: [
-                    "UILaunchStoryboardName": "LaunchScreen", // crucial to show app with correct size on screen
-                    "UIApplicationSceneManifest": [
-                        "UIApplicationSupportsMultipleScenes": false,
-                        "UISceneConfigurations": [
-                            "UIWindowSceneSessionRoleApplication": [
-                                [
-                                    "UISceneConfigurationName": "Default Configuration",
-                                    "UISceneDelegateClassName": "$(PRODUCT_MODULE_NAME).SceneDelegate"
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ),
+            infoPlist: .file(path: .path("EssentialApp/Info.plist")),
             sources: ["EssentialApp/**"],
             resources: [
                 "EssentialApp/**/*.storyboard",
@@ -42,7 +34,8 @@ let project = Project(
                     target: "EssentialFeediOS",
                     path: .path("../EssentialFeed")
                 )
-            ]
+            ],
+            settings: essentialAppSettings
         ),
         .target(
             name: "EssentialAppTests",
