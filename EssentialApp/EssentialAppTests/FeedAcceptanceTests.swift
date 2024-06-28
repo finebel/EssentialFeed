@@ -10,7 +10,7 @@ import EssentialFeed
 import EssentialFeediOS
 @testable import EssentialApp
 
-final class FeedAcceptanceTests: XCTestCase {
+final class FeedAcceptanceTests: XCTestCase {    
     func test_onLaunch_displaysRemoteFeedWhenCustomerHasConnectivity() throws {
         let feed = try launch(httpClient: .online(response), store: .empty)
         

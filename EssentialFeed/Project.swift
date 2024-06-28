@@ -1,7 +1,7 @@
 import ProjectDescription
 
 let project = Project(
-    name: "EssentialFeedNew",
+    name: "EssentialFeed",
     options: .options(
         disableBundleAccessors: true,
         disableSynthesizedResourceAccessors: true
