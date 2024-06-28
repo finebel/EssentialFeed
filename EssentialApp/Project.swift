@@ -1,7 +1,7 @@
 import ProjectDescription
 
 let project = Project(
-    name: "EssentialAppNew",
+    name: "EssentialApp",
     options: .options(
         disableBundleAccessors: true,
         disableSynthesizedResourceAccessors: true
@@ -36,11 +36,11 @@ let project = Project(
             dependencies: [
                 .project(
                     target: "EssentialFeed",
-                    path: .path("../EssentialFeedNew")
+                    path: .path("../EssentialFeed")
                 ),
                 .project(
                     target: "EssentialFeediOS",
-                    path: .path("../EssentialFeedNew")
+                    path: .path("../EssentialFeed")
                 )
             ]
         ),
