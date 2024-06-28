@@ -79,6 +79,7 @@
 		066A22A5E476FCEA8958B217 /* LoadResourcePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadResourcePresentationAdapter.swift; sourceTree = "<group>"; };
 		130898D5D2782FC4672DBAE3 /* UIRefreshControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+TestHelpers.swift"; sourceTree = "<group>"; };
 		292E8B834F28ED1EDE6E63C9 /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
+		2EBE57E9E75226A21C0A7C72 /* EssentialApp.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = EssentialApp.xcconfig; sourceTree = "<group>"; };
 		30519657501D353E778F2BEF /* UIButton+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+TestHelpers.swift"; sourceTree = "<group>"; };
 		377B27CE94ED2E22BCBBF64E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41D4CF50D63F552FA55E21AE /* ListViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+TestHelpers.swift"; sourceTree = "<group>"; };
@@ -87,6 +88,7 @@
 		6A214877A4665EC7EC6E4CB5 /* EssentialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D668D2D68FBCF102512B33C /* UIControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+TestHelpers.swift"; sourceTree = "<group>"; };
 		6F4C9EFC948C4A9279A3612D /* FeedAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAcceptanceTests.swift; sourceTree = "<group>"; };
+		7219DBEC418DE7132CEB8A6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		72CE7FD03D70E867C13DEB5C /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
 		72E95C752FA7F79266CC5BB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		73462E5FDC52046FD404D75F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -106,7 +108,6 @@
 		C8976AB06BE9ABEDB695A4AA /* SceneDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
 		D9BB4CD281A40337F5049AE4 /* HTTPClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientStub.swift; sourceTree = "<group>"; };
 		DC62EFA987A074979D7E92A7 /* CommentsUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsUIIntegrationTests.swift; sourceTree = "<group>"; };
-		DD846BB846F40621185B42F4 /* EssentialApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "EssentialApp-Info.plist"; sourceTree = "<group>"; };
 		DEB2D989ED0BEC302556F817 /* FeedUIIntegrationTests+LoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedUIIntegrationTests+LoaderSpy.swift"; sourceTree = "<group>"; };
 		FD4275E84CB43E9C2240AAD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +142,7 @@
 				82C93E59F8AD6BB7329AF239 /* CommentsUIComposer.swift */,
 				292E8B834F28ED1EDE6E63C9 /* FeedUIComposer.swift */,
 				779C476B36E9370A67AF8D19 /* FeedViewAdapter.swift */,
+				7219DBEC418DE7132CEB8A6B /* Info.plist */,
 				066A22A5E476FCEA8958B217 /* LoadResourcePresentationAdapter.swift */,
 				FD4275E84CB43E9C2240AAD3 /* SceneDelegate.swift */,
 				72E95C752FA7F79266CC5BB3 /* ViewController.swift */,
@@ -165,10 +167,18 @@
 			path = Derived;
 			sourceTree = "<group>";
 		};
+		69FA27C51620043E41D5C841 /* ConfigFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2EBE57E9E75226A21C0A7C72 /* EssentialApp.xcconfig */,
+			);
+			name = ConfigFiles;
+			path = ../ConfigFiles;
+			sourceTree = "<group>";
+		};
 		6C7A5EAA94C8B2CA5B2E6AA7 /* InfoPlists */ = {
 			isa = PBXGroup;
 			children = (
-				DD846BB846F40621185B42F4 /* EssentialApp-Info.plist */,
 				536A8F65F586A8758DB5DAC8 /* EssentialAppTests-Info.plist */,
 			);
 			path = InfoPlists;
@@ -219,6 +229,7 @@
 		FAD764D0EC684A73282737C1 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				69FA27C51620043E41D5C841 /* ConfigFiles */,
 				28BF4A1C746CB89AAE12A1F1 /* Derived */,
 				1B6415D1C38120EB45A80726 /* EssentialApp */,
 				E4235D3F411980A760894AA4 /* EssentialAppTests */,
@@ -382,11 +393,12 @@
 /* Begin XCBuildConfiguration section */
 		1BACFDA40BD64DC4D8310A6B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EBE57E9E75226A21C0A7C72 /* EssentialApp.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Derived/InfoPlists/EssentialApp-Info.plist";
+				INFOPLIST_FILE = EssentialApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -525,11 +537,12 @@
 		};
 		AAEEBD52FE389BFF94317868 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EBE57E9E75226A21C0A7C72 /* EssentialApp.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Derived/InfoPlists/EssentialApp-Info.plist";
+				INFOPLIST_FILE = EssentialApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
