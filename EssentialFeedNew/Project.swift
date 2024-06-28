@@ -45,6 +45,19 @@ let project = Project(
             bundleId: "de.finnebeling.EssentialFeedCacheIntegrationTests",
             sources: ["EssentialFeedCacheIntegrationTests/**", "EssentialFeedSharedTestHelpers/**"],
             dependencies: [.target(name: "EssentialFeed")]
+        ),
+        .target(
+            name: "EssentialFeediOS",
+            destinations: [.iPhone],
+            product: .framework,
+            bundleId: "de.finnebeling.EssentialFeed.EssentialFeediOS",
+            sources: ["EssentialFeediOS/**"],
+            resources: [
+                "EssentialFeediOS/**/*.storyboard",
+                "EssentialFeediOS/**/*.strings",
+                "EssentialFeediOS/**/*.xcassets"
+            ],
+            dependencies: [.target(name: "EssentialFeed")]
         )
     ]
 )
