@@ -1,7 +1,7 @@
 import ProjectDescription
 
 let project = Project(
-    name: "EssentialFeed",
+    name: "EssentialFeedNew",
     options: .options(
         disableBundleAccessors: true,
         disableSynthesizedResourceAccessors: true
@@ -12,12 +12,12 @@ let project = Project(
             destinations: [.iPhone, .mac],
             product: .framework,
             bundleId: "de.finnebeling.EssentialFeed",
-            sources: ["Sources/EssentialFeed/**"],
-            resources: ["Resources/EssentialFeed/**"],
+            sources: ["EssentialFeed/**"],
+            resources: ["EssentialFeed/Resources/**"],
             coreDataModels: [
                 .coreDataModel(
                     .path(
-                        "Sources/EssentialFeed/FeedCache/Infrastructure/CoreData/FeedStore.xcdatamodeld"
+                        "EssentialFeed/FeedCache/Infrastructure/CoreData/FeedStore.xcdatamodeld"
                     )
                 )
             ]
@@ -27,7 +27,7 @@ let project = Project(
             destinations: [.iPhone, .mac],
             product: .unitTests,
             bundleId: "de.finnebeling.EssentialFeedTests",
-            sources: ["Sources/EssentialFeedTests/**", "Sources/SharedTestHelpers/**"],
+            sources: ["EssentialFeedTests/**", "EssentialFeedSharedTestHelpers/**"],
             dependencies: [.target(name: "EssentialFeed")]
         ),
         .target(
@@ -35,7 +35,15 @@ let project = Project(
             destinations: [.iPhone, .mac],
             product: .unitTests,
             bundleId: "de.finnebeling.EssentialFeedAPIEndToEndTests",
-            sources: ["Sources/EssentialFeedAPIEndToEndTests/**", "Sources/SharedTestHelpers/**"],
+            sources: ["EssentialFeedAPIEndToEndTests/**", "EssentialFeedSharedTestHelpers/**"],
+            dependencies: [.target(name: "EssentialFeed")]
+        ),
+        .target(
+            name: "EssentialFeedCacheIntegrationTests",
+            destinations: [.iPhone, .mac],
+            product: .unitTests,
+            bundleId: "de.finnebeling.EssentialFeedCacheIntegrationTests",
+            sources: ["EssentialFeedCacheIntegrationTests/**", "EssentialFeedSharedTestHelpers/**"],
             dependencies: [.target(name: "EssentialFeed")]
         )
     ]
