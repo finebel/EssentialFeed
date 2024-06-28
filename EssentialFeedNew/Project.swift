@@ -58,6 +58,14 @@ let project = Project(
                 "EssentialFeediOS/**/*.xcassets"
             ],
             dependencies: [.target(name: "EssentialFeed")]
+        ),
+        .target(
+            name: "EssentialFeediOSTests",
+            destinations: [.iPhone],
+            product: .unitTests,
+            bundleId: "de.finnebeling.EssentialFeed.EssentialFeediOSTests",
+            sources: ["EssentialFeediOSTests/**", "EssentialFeedSharedTestHelpers/**"],
+            dependencies: [.target(name: "EssentialFeediOS")]
         )
     ]
 )
