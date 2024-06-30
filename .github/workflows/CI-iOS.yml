@@ -25,7 +25,7 @@ jobs:
       - name: Build and Test CI_iOS Scheme
         run: |
           set -o pipefail && xcodebuild clean build test \
-          -workspace EssentialApp/EssentialApp.xcworkspace \
+          -workspace EssentialApp.xcworkspace \
           -scheme CI_iOS \
           -sdk iphonesimulator \
           -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.2" \

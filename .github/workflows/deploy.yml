@@ -54,7 +54,7 @@ jobs:
         run: |
           xcodebuild clean archive \
           -sdk iphoneos \
-          -workspace EssentialApp/EssentialApp.xcworkspace \
+          -workspace EssentialApp.xcworkspace \
           -configuration "Release" \
           -scheme "EssentialApp" \
           -derivedDataPath "DerivedData" \

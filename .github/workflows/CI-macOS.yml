@@ -25,7 +25,7 @@ jobs:
       - name: Build and Test CI_macOS Scheme
         run: |
           set -o pipefail && xcodebuild clean build test \
-          -project EssentialFeed/EssentialFeed.xcodeproj \
+          -workspace EssentialApp.xcworkspace \
           -scheme CI_macOS \
           -sdk macosx \
           -destination "platform=macOS" \
