@@ -1,9 +1,10 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let essentialAppSettings: Settings = .settings(
     configurations: [
-        .debug(name: "Debug", xcconfig: .path("../ConfigFiles/EssentialApp.xcconfig")),
-        .release(name: "Release", xcconfig: .path("../ConfigFiles/EssentialApp.xcconfig"))
+        .essentialAppDebug,
+        .essentialAppRelease
     ]
 )
 
