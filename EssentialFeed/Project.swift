@@ -1,9 +1,10 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let essentialFeedSettings: Settings = .settings(
     configurations: [
-        .debug(name: "Debug", xcconfig: .path("../ConfigFiles/EssentialFeed.xcconfig")),
-        .release(name: "Release", xcconfig: .path("../ConfigFiles/EssentialFeed.xcconfig"))
+        .essentialFeedDebug,
+        .essentialFeedRelease
     ]
 )
 
