@@ -2,7 +2,7 @@ name: CI-iOS
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ main, main-tuist ]
 
 jobs:
   build-and-test:
