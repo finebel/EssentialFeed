@@ -6,18 +6,12 @@ let essentialAppTarget = TargetReference.project(
     target: "EssentialApp"
 )
 
-let essentialAppTestTarget = TargetReference.project(
-    path: "EssentialApp",
-    target: "EssentialAppTests"
-)
-
 let ciIOSScheme: Scheme = .scheme(
     name: "CI_iOS",
     buildAction: .buildAction(targets: [essentialAppTarget]),
-    testAction: .targets([.testableTarget(target: essentialAppTestTarget)]),
-//    testAction: .testPlans(
-//        [.path("Testplans/CI_iOSa.xctestplan")]
-//    ),
+    testAction: .testPlans(
+        [.path("Testplans/CI_iOS.xctestplan")]
+    ),
     runAction: .runAction(configuration: .essentialAppDebug, executable: essentialAppTarget),
     archiveAction: .archiveAction(configuration: .essentialAppRelease),
     analyzeAction: .analyzeAction(configuration: .essentialAppRelease)
