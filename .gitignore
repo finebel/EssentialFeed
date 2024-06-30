@@ -3,6 +3,10 @@ xcuserdata/
 signingAssets/
 DerivedData/
 
+### Projects ###
+**/*.xcodeproj
+**/*.xcworkspace
+
 ### Tuist derived files ###
 graph.dot
 Derived/
