@@ -4,7 +4,10 @@ public extension Configuration {
     static var essentialAppDebug: Self {
         .debug(
             name: "Debug",
-            settings: SettingsDictionary().automaticCodeSigning(devTeam: "K2H77582Z5"),
+            settings: SettingsDictionary()
+                .automaticCodeSigning(devTeam: "K2H77582Z5")
+                .currentProjectVersion("1")
+            ,
             xcconfig: .relativeToRoot("ConfigFiles/EssentialApp.xcconfig")
         )
     }
@@ -16,7 +19,9 @@ public extension Configuration {
                 .manualCodeSigning(
                     identity: "Apple Distribution: Finn Ebeling (K2H77582Z5)",
                     provisioningProfileSpecifier: "EssentialAppDistributionProfile"
-                ),
+                )
+                .currentProjectVersion("1")
+            ,
             xcconfig: .relativeToRoot("ConfigFiles/EssentialApp.xcconfig")
         )
     }
